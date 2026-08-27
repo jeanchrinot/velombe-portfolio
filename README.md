@@ -36,3 +36,7 @@ Visit `http://localhost:3000`.
 
 - `/privacy` and `/terms` ship with placeholder content, clearly labeled as a draft on the page itself — replace before relying on it.
 - Theme defaults to dark; the toggle in the nav switches to light, persisted in `localStorage`.
+
+## License
+
+MIT — see [LICENSE.md](./LICENSE.md).
