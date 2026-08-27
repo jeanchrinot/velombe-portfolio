@@ -1,0 +1,582 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "confirm": "Confirmar",
+    "search": "Buscar",
+    "or": "O",
+    "orContinueWith": "O continuar con",
+    "viewAll": "Ver todo",
+    "getStarted": "Comenzar",
+    "startFreeTrial": "Iniciar prueba gratuita",
+    "goToDashboard": "Ir al panel",
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "signOut": "Cerrar sesión",
+    "comingSoon": "Próximamente",
+    "srOnly": {
+      "github": "GitHub",
+      "toggleTheme": "Cambiar tema",
+      "toggleNav": "Alternar menú de navegación"
+    }
+  },
+  "nav": {
+    "dashboard": "Panel",
+    "signIn": "Iniciar sesión",
+    "pricing": "Precios",
+    "blog": "Blog",
+    "help": "Documentación"
+  },
+  "footer": {
+    "copyright": "Copyright © {year} Ship AI SaaS. Todos los derechos reservados.",
+    "terms": "Términos",
+    "privacy": "Privacidad",
+    "pricing": "Precios"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "toggle": "Cambiar tema"
+  },
+  "auth": {
+    "login": {
+      "title": "Bienvenido de vuelta",
+      "subtitlePassword": "Ingresa tu correo y contraseña para iniciar sesión",
+      "subtitleMagicLink": "Ingresa tu correo y te enviaremos un enlace de acceso",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "nombre@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "signInButton": "Iniciar sesión",
+      "signingInButton": "Iniciando sesión...",
+      "sendMagicLink": "Enviar enlace mágico",
+      "sendingMagicLink": "Enviando...",
+      "switchToMagicLink": "Iniciar sesión con enlace mágico",
+      "switchToPassword": "Usar contraseña",
+      "noAccount": "¿No tienes cuenta?",
+      "signUpLink": "Registrarse",
+      "google": "Google",
+      "connecting": "Conectando...",
+      "checkInbox": "Revisa tu bandeja de entrada",
+      "magicLinkSentTo": "Enviamos un enlace de acceso a {email}",
+      "magicLinkExpiry": "Haz clic en el enlace del correo para iniciar sesión. El enlace expira en 5 minutos.",
+      "backToSignIn": "Volver al inicio de sesión",
+      "errorInvalidCredentials": "Credenciales inválidas",
+      "errorMagicLink": "Error al enviar el enlace mágico."
+    },
+    "signup": {
+      "title": "Crear una cuenta",
+      "subtitleMagicLink": "Ingresa tu correo y te enviaremos un enlace de registro",
+      "subtitlePassword": "Recibirás un código de verificación por correo",
+      "nameLabel": "Nombre",
+      "namePlaceholder": "Juan Pérez",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "nombre@ejemplo.com",
+      "passwordLabel": "Contraseña",
+      "passwordPlaceholder": "Crea una contraseña segura",
+      "passwordHint": "Debe tener al menos 8 caracteres.",
+      "createAccount": "Registrarse",
+      "creatingAccount": "Creando cuenta...",
+      "sendMagicLink": "Enviar enlace mágico",
+      "sendingMagicLink": "Enviando...",
+      "switchToMagicLink": "Registrarse con enlace mágico",
+      "switchToPassword": "Registrarse con contraseña",
+      "alreadyHaveAccount": "¿Ya tienes cuenta?",
+      "signInLink": "Iniciar sesión",
+      "google": "Google",
+      "checkInbox": "Revisa tu bandeja de entrada",
+      "magicLinkSentTo": "Enviamos un enlace de acceso a {email}",
+      "magicLinkExpiry": "Haz clic en el enlace del correo para crear tu cuenta. El enlace expira en 5 minutos.",
+      "backToSignUp": "Volver al registro",
+      "errorGeneral": "Ocurrió un error durante el registro."
+    },
+    "forgotPassword": {
+      "title": "Restablecer contraseña",
+      "subtitle": "Ingresa tu dirección de correo y te enviaremos un código de verificación.",
+      "emailLabel": "Dirección de correo",
+      "emailPlaceholder": "nombre@ejemplo.com",
+      "sendCode": "Enviar código de verificación",
+      "sendingCode": "Enviando...",
+      "backToSignIn": "Volver al inicio de sesión",
+      "errorSendCode": "Error al enviar el código de verificación. Inténtalo de nuevo."
+    },
+    "verifyEmail": {
+      "title": "Verifica tu correo",
+      "titleResetPassword": "Verificar identidad",
+      "subtitle": "Enviamos un código de 6 dígitos a {email}",
+      "subtitleFallback": "tu correo",
+      "codeLabel": "Código de verificación",
+      "codePlaceholder": "000000",
+      "verifyButton": "Verificar código",
+      "resendCode": "¿No recibiste el código? Reenviar",
+      "resendCooldown": "Reenviar código en {seconds}s",
+      "backToSignIn": "Volver al inicio de sesión",
+      "errorInvalidCode": "Código inválido. Inténtalo de nuevo.",
+      "errorResendCode": "Error al reenviar el código.",
+      "resetPassword": {
+        "title": "Crear nueva contraseña",
+        "subtitle": "Elige una nueva contraseña para {email}",
+        "newPasswordLabel": "Nueva contraseña",
+        "confirmPasswordLabel": "Confirmar contraseña",
+        "resetButton": "Restablecer contraseña",
+        "passwordMismatch": "Las contraseñas no coinciden",
+        "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+        "errorReset": "Error al restablecer la contraseña."
+      }
+    },
+    "acceptInvite": {
+      "joiningTitle": "Uniéndose al espacio de trabajo...",
+      "joiningSubtitle": "Por favor espera mientras verificamos tu invitación.",
+      "invalidTitle": "Invitación inválida",
+      "goToDashboard": "Ir al panel",
+      "errorAccept": "Error al aceptar la invitación."
+    },
+    "messages": {
+      "password-reset-success": "Tu contraseña ha sido cambiada exitosamente.",
+      "password-reset-sent": "Se ha enviado un correo para restablecer la contraseña a tu dirección.",
+      "password-reset-expired": "El enlace de restablecimiento ha expirado. Solicita uno nuevo.",
+      "password-reset-invalid": "El enlace de restablecimiento es inválido.",
+      "signup-success": "Tu cuenta ha sido creada exitosamente.",
+      "signup-email-sent": "Se ha enviado un correo de verificación a tu dirección.",
+      "signup-email-verified": "Tu correo ha sido verificado exitosamente.",
+      "signup-already-exists": "Ya existe una cuenta con esta dirección de correo.",
+      "signin-success": "Sesión iniciada exitosamente.",
+      "signin-invalid": "Correo o contraseña incorrectos.",
+      "signin-required": "Debes iniciar sesión para acceder a esta página.",
+      "signin-email-not-verified": "Por favor verifica tu correo antes de iniciar sesión.",
+      "signin-account-locked": "Tu cuenta ha sido bloqueada temporalmente.",
+      "otp-sent": "Se ha enviado un código de verificación a tu correo.",
+      "otp-resent": "Se ha enviado un nuevo código de verificación.",
+      "otp-invalid": "El código de verificación es inválido o ha expirado.",
+      "otp-expired": "El código de verificación ha expirado.",
+      "otp-verified": "Código de verificación confirmado.",
+      "session-expired": "Tu sesión ha expirado. Por favor inicia sesión de nuevo.",
+      "session-invalid": "Sesión inválida. Por favor inicia sesión de nuevo.",
+      "logout-success": "Has cerrado sesión exitosamente.",
+      "unauthorized": "Acceso no autorizado.",
+      "forbidden": "No tienes los permisos necesarios.",
+      "server-error": "Ocurrió un error del servidor. Inténtalo de nuevo.",
+      "network-error": "Error de conexión. Verifica tu conexión a Internet.",
+      "validation-error": "Por favor verifica la información ingresada.",
+      "account-created": "Tu cuenta ha sido creada exitosamente.",
+      "account-deleted": "Tu cuenta ha sido eliminada.",
+      "account-updated": "Tu información ha sido actualizada.",
+      "account-suspended": "Tu cuenta ha sido suspendida.",
+      "email-change-sent": "Se ha enviado un correo de confirmación a tu nueva dirección.",
+      "email-change-success": "Tu dirección de correo ha sido cambiada exitosamente.",
+      "email-verification-sent": "Se ha enviado un correo de verificación.",
+      "email-verification-required": "Debes verificar tu dirección de correo.",
+      "invite-sent": "La invitación ha sido enviada exitosamente.",
+      "invite-accepted": "Invitación aceptada exitosamente.",
+      "invite-expired": "Esta invitación ha expirado.",
+      "invite-invalid": "Esta invitación es inválida.",
+      "2fa-enabled": "La autenticación de dos factores ha sido habilitada.",
+      "2fa-disabled": "La autenticación de dos factores ha sido deshabilitada.",
+      "2fa-required": "Se requiere autenticación de dos factores.",
+      "2fa-invalid": "Código de autenticación inválido."
+    }
+  },
+  "dashboard": {
+    "title": "Panel",
+    "subtitle": "Tu equipo de IA de un vistazo.",
+    "kpi": {
+      "tasks": "Tareas",
+      "tasksSubtitle": "Tareas de IA completadas",
+      "pendingApproval": "Pendiente de aprobación",
+      "actionNeeded": "Acción requerida",
+      "allClear": "Todo en orden",
+      "assetsGenerated": "Activos generados",
+      "assetsThisWeek": "+{count} esta semana",
+      "activeWorkflows": "Flujos de trabajo activos",
+      "totalRuns": "{count} ejecuciones en total",
+      "monthlyCredits": "Créditos mensuales",
+      "usedThisMonth": "{pct}% usado este mes",
+      "fullBreakdown": "Desglose completo",
+      "timeSaved": "Tiempo ahorrado",
+      "timeSavedSubtitle": "~15 min por ejecución de flujo de trabajo"
+    },
+    "charts": {
+      "activity": "Actividad — últimos 30 días",
+      "tasks": "Tareas",
+      "runs": "Ejecuciones",
+      "assetOutput": "Salida de activos",
+      "noAssets": "Sin activos aún"
+    },
+    "recentTasks": {
+      "title": "Tareas recientes",
+      "viewAll": "Ver todo →",
+      "workflow": "Flujo de trabajo",
+      "task": "Tarea"
+    },
+    "empty": {
+      "title": "Tu equipo de IA está listo",
+      "subtitle": "Inicia una conversación o crea un flujo de trabajo para ver tu panel cobrar vida.",
+      "startTask": "Iniciar una tarea",
+      "createWorkflow": "Crear flujo de trabajo"
+    },
+    "agents": {
+      "title": "Agentes de IA",
+      "subtitle": "Selecciona un agente de IA especializado para ayudarte con tus tareas."
+    },
+    "tasks": {
+      "title": "Tareas",
+      "subtitle": "Cada conversación con el asistente de IA es una tarea."
+    },
+    "assets": {
+      "title": "Activos",
+      "subtitle": "Tus archivos subidos y medios generados."
+    },
+    "workflows": {
+      "title": "Flujos de trabajo",
+      "subtitle": "Automatiza tus procesos con flujos de trabajo de IA de múltiples pasos."
+    },
+    "usage": {
+      "title": "Uso",
+      "subtitle": "Monitorea el consumo de API de tu equipo y los límites del plan.",
+      "monthlyRequests": "Solicitudes mensuales",
+      "monthlyRequestsSubtitle": "{pct}% de tu límite mensual usado",
+      "todayRequests": "Solicitudes de hoy",
+      "todayRequestsSubtitle": "{pct}% de tu límite diario usado",
+      "totalTokens": "Total de tokens usados"
+    },
+    "billing": {
+      "title": "Facturación",
+      "subtitle": "Gestiona la facturación y tu plan de suscripción."
+    },
+    "charts_page": {
+      "title": "Gráficos",
+      "subtitle": "Desglose visual de la actividad y uso de tu equipo."
+    },
+    "settings": {
+      "title": "Configuración",
+      "subtitle": "Configura los ajustes de tu cuenta.",
+      "profileSection": "Perfil",
+      "profileSubtitle": "Actualiza tu nombre de visualización y foto de perfil.",
+      "photoLabel": "Foto de perfil",
+      "photoHint": "JPG, PNG o WebP · máx. 5 MB",
+      "displayNameLabel": "Nombre de visualización",
+      "displayNamePlaceholder": "Tu nombre",
+      "displayNameHint": "Máximo 32 caracteres.",
+      "emailLabel": "Dirección de correo",
+      "emailHint": "La dirección de correo no puede cambiarse.",
+      "saveButton": "Guardar",
+      "dangerZone": "Zona de peligro",
+      "dangerZoneSubtitle": "Acciones irreversibles — procede con cuidado.",
+      "deleteAccountTitle": "Eliminar cuenta",
+      "deleteAccountDescription": "Elimina permanentemente tu cuenta, todos tus equipos, conversaciones, activos y datos asociados. Esto no puede deshacerse.",
+      "deleteAccountButton": "Eliminar cuenta",
+      "deleteConfirmTitle": "¿Eliminar tu cuenta?",
+      "deleteConfirmDescription": "Esto eliminará permanentemente tu cuenta y todos los datos asociados. Esta acción no puede deshacerse.",
+      "deleteConfirmPrompt": "Escribe {email} para confirmar",
+      "deleteConfirmButton": "Eliminar cuenta",
+      "toastPhotoUpdated": "Foto de perfil actualizada.",
+      "toastNameUpdated": "Nombre de visualización actualizado.",
+      "toastAccountDeleted": "Cuenta eliminada.",
+      "toastDeleteFailed": "Error al eliminar la cuenta. Inténtalo de nuevo.",
+      "toastNameFailed": "Error al actualizar el nombre.",
+      "toastPhotoFailed": "Error al subir la foto."
+    }
+  },
+  "sidebar": {
+    "sections": {
+      "ADMIN": "ADMIN",
+      "DASHBOARD": "PANEL",
+      "ORGANIZATION": "ORGANIZACIÓN",
+      "ACCOUNT": "CUENTA",
+      "HELP": "AYUDA"
+    },
+    "links": {
+      "Dashboard": "Panel",
+      "Users": "Usuarios",
+      "Organizations": "Organizaciones",
+      "Usage": "Uso",
+      "Agents": "Agentes",
+      "Tasks": "Tareas",
+      "Assets": "Activos",
+      "Workflows": "Flujos de trabajo",
+      "Charts": "Gráficos",
+      "Settings": "Configuración",
+      "Members": "Miembros",
+      "Billing": "Facturación",
+      "Documentation": "Documentación",
+      "Support": "Soporte"
+    },
+    "user": {
+      "planTitle": "Plan {title}",
+      "renewsOn": "Se renueva el {date}",
+      "cancelsOn": "Se cancela el {date}",
+      "upgradeTitle": "Actualizar a Pro",
+      "upgradeSubtitle": "Desbloquear todas las funciones"
+    },
+    "orgSwitcher": {
+      "workspaces": "Espacios de trabajo",
+      "newOrganization": "Nueva organización"
+    }
+  },
+  "admin": {
+    "overview": {
+      "title": "Resumen de Admin",
+      "subtitle": "Salud de la plataforma, métricas globales y actividad reciente."
+    },
+    "users": {
+      "title": "Gestión de usuarios",
+      "subtitle": "Ver, modificar y moderar todas las cuentas de la plataforma."
+    },
+    "organizations": {
+      "title": "Organizaciones",
+      "subtitle": "Ver y gestionar todas las organizaciones de la plataforma."
+    },
+    "usage": {
+      "title": "Uso de la plataforma",
+      "subtitle": "Consumo de API global y uso de tokens."
+    },
+    "orders": {
+      "title": "Pedidos",
+      "subtitle": "Ver y gestionar todos los pedidos de la plataforma."
+    },
+    "kpi": {
+      "totalUsers": "Total de usuarios",
+      "totalUsersSubtitle": "Cuentas registradas",
+      "organizations": "Organizaciones",
+      "organizationsSubtitle": "Espacios de trabajo activos",
+      "tokenUsage": "Uso de tokens",
+      "tokenUsageSubtitle": "Total de tokens procesados",
+      "paidPlans": "Planes de pago",
+      "paidPlansSubtitle": "Equipos con plan de pago"
+    },
+    "errorLoad": "Error al cargar los datos de admin."
+  },
+  "onboarding": {
+    "title": "¡Bienvenido a bordo!",
+    "subtitle": "Configuremos tu espacio de trabajo para que puedas comenzar."
+  },
+  "organizations": {
+    "title": "Organizaciones",
+    "new": {
+      "title": "Nueva organización",
+      "subtitle": "Crea un nuevo espacio de trabajo para tu equipo."
+    },
+    "members": {
+      "title": "Miembros del equipo",
+      "subtitle": "Gestiona quién tiene acceso a tu espacio de trabajo y sus niveles de permiso."
+    },
+    "settings": {
+      "title": "Configuración del espacio de trabajo",
+      "subtitle": "Gestiona el nombre, logo y preferencias de tu espacio de trabajo."
+    }
+  },
+  "pricing": {
+    "subscriptionPlan": "Plan de suscripción",
+    "currentlyOn": "Actualmente estás en el plan {plan}.",
+    "renewsOn": "Tu plan se renueva el {date}.",
+    "cancelsOn": "Tu plan se cancelará el {date}.",
+    "choosePlan": "Elegir un plan"
+  },
+  "marketing": {
+    "hero": {
+      "badge": "v2.0 · Los agentes de IA autónomos están en vivo",
+      "headline": "Todo tu back-office, dirigido por agentes de IA.",
+      "subheadline": "Automatiza el trabajo repetitivo que frena a tu equipo. Deja que agentes inteligentes trabajen en segundo plano mientras tu equipo se enfoca en lo que importa.",
+      "ctaPrimary": "Iniciar prueba gratuita",
+      "ctaSecondary": "Precios",
+      "trust": "Confiado por más de 10,000 equipos innovadores"
+    },
+    "coreFeatures": {
+      "title": "Todo lo que necesitas para lanzar.",
+      "subtitle": "Las funciones fundamentales de todo gran SaaS ya están integradas.",
+      "authentication": "Autenticación",
+      "authenticationDesc": "Inicio de sesión seguro, registro y enlaces mágicos.",
+      "stripeBilling": "Facturación con Stripe",
+      "stripeBillingDesc": "Planes de suscripción flexibles con sincronización automática de webhooks.",
+      "customerPortal": "Portal del cliente",
+      "customerPortalDesc": "Gestión de facturación de autoservicio, actualizaciones de plan y facturas.",
+      "teamWorkspaces": "Espacios de trabajo en equipo",
+      "teamWorkspacesDesc": "Invita miembros, gestiona roles y comparte recursos fácilmente.",
+      "adminDashboard": "Panel de administración",
+      "adminDashboardDesc": "Visión general de usuarios, ingresos y salud del sistema.",
+      "darkMode": "Modo oscuro",
+      "darkModeDesc": "Soporte nativo para temas claro, oscuro y de sistema.",
+      "mdxBlog": "Blog MDX",
+      "mdxBlogDesc": "Blog optimizado para SEO impulsado por markdown.",
+      "emailTemplates": "Plantillas de correo",
+      "emailTemplatesDesc": "Correos transaccionales hermosos vía Resend.",
+      "databaseOrm": "ORM de base de datos",
+      "databaseOrmDesc": "Interacciones de base de datos con seguridad de tipos con Drizzle.",
+      "rateLimiting": "Limitación de tasa",
+      "rateLimitingDesc": "Protección de endpoints integrada para prevenir abusos.",
+      "edgeReady": "Listo para Edge",
+      "edgeReadyDesc": "Optimizado para funciones Vercel Edge para respuestas ultrarrápidas.",
+      "i18nSupport": "Soporte i18n",
+      "i18nSupportDesc": "Soporte completo de locales para EN, FR, DE y ES incluido. Agrega más idiomas con un solo archivo JSON."
+    },
+    "logoCloud": {
+      "title": "Construido sobre tecnologías en las que confías"
+    },
+    "bentoFeatures": {
+      "label": "Características",
+      "title": "Todo lo que tu equipo necesita para funcionar en piloto automático.",
+      "backgroundWorkflows": "Flujos de trabajo en segundo plano",
+      "backgroundWorkflowsDesc": "Los agentes funcionan de forma autónoma en segundo plano — investigando, redactando y ejecutando tareas de múltiples pasos.",
+      "humanInLoop": "Humano en el bucle",
+      "humanInLoopDesc": "Establece puertas de aprobación en cualquier paso del flujo de trabajo. Cada decisión crítica llega a tu equipo antes de que el agente continúe.",
+      "secureStorage": "Almacenamiento seguro de activos",
+      "secureStorageDesc": "Cada resultado — documentos, imágenes, datos estructurados — se guarda y versiona automáticamente.",
+      "customPersonas": "Personas de IA personalizadas",
+      "customPersonasDesc": "Crea agentes especializados para cada función: revisión legal, análisis de competencia, producción de contenido."
+    },
+    "featureDeepDive": {
+      "badge1": "Transparencia Chat-como-Estado",
+      "title1": "Flujos de trabajo en segundo plano",
+      "desc1": "Proporciona un objetivo de alto nivel y observa cómo la IA genera un plan de ejecución determinista paso a paso. Los flujos de trabajo se ejecutan en segundo plano durante minutos u horas sin agotar el tiempo.",
+      "bullet1a": "Planificación basada en objetivos",
+      "bullet1b": "Cola de ejecución duradera",
+      "bullet1c": "Libro de ejecución en vivo",
+      "badge2": "Seguridad primero",
+      "title2": "Verdadero control humano",
+      "desc2": "Los pasos críticos pueden marcarse estrictamente para requerir revisión humana. Los flujos de trabajo se pausan automáticamente y te alertan.",
+      "bullet2a": "Barreras de seguridad integradas",
+      "bullet2b": "Flujo de aprobación fluido",
+      "bullet2c": "Alertas por correo y panel",
+      "badge3": "Biblioteca inteligente",
+      "title3": "El interceptor de activos",
+      "desc3": "No más buscar en interminables registros de chat. El sistema captura inteligentemente los resultados finales y los deposita en una bóveda centralizada y buscable.",
+      "bullet3a": "Captura automática de resultados",
+      "bullet3b": "Bóveda de activos centralizada",
+      "bullet3c": "Buscar y descargar en cualquier momento"
+    },
+    "howItWorks": {
+      "title": "Cómo funciona",
+      "subtitle": "De la idea al lanzamiento en tres pasos.",
+      "step1Title": "Conectar",
+      "step1Desc": "Apunta los agentes a tus herramientas, documentos y fuentes de datos. Configuración única, sin mantenimiento.",
+      "step2Title": "Automatizar",
+      "step2Desc": "Los agentes investigan, ejecutan e iteran en segundo plano — adaptándose a cada tarea.",
+      "step3Title": "Lanzar",
+      "step3Desc": "Revisa resultados, aprueba decisiones y publica salidas. Mantienes el control en cada paso crítico."
+    },
+    "pricing": {
+      "label": "Precios",
+      "title": "¡Empieza a toda velocidad!",
+      "yearly": "Anual",
+      "monthly": "Mensual",
+      "yearlyDiscount": "−20%",
+      "mostPopular": "Más popular",
+      "perMonth": "/mes",
+      "billedAnnually": "facturado anualmente",
+      "billedMonthly": "facturado mensualmente",
+      "questions": "¿Preguntas?",
+      "contactEmail": "support@shipaisaas.com",
+      "testCards": "Las tarjetas de prueba no serán cobradas.",
+      "getStarted": "Comenzar",
+      "goToDashboard": "Ir al panel",
+      "manageSubscription": "Gestionar suscripción",
+      "upgrade": "Mejorar",
+      "loading": "Cargando..."
+    },
+    "faq": {
+      "label": "FAQ",
+      "title": "Preguntas comunes, respuestas directas.",
+      "subtitle": "Todo lo que necesitas saber antes de empezar.",
+      "securityQuestion": "¿Están seguros mis datos?",
+      "securityAnswer": "Todos los datos están cifrados en reposo y en tránsito usando AES-256 y TLS 1.3. No entrenamos con tus datos.",
+      "onboardingQuestion": "¿Cuánto tiempo tarda la incorporación?",
+      "onboardingAnswer": "La mayoría de los equipos están completamente operativos en menos de 30 minutos.",
+      "integrationsQuestion": "¿Qué herramientas e integraciones soportan?",
+      "integrationsAnswer": "Soportamos integraciones basadas en REST API y webhooks, lo que significa que nos conectamos a prácticamente cualquier herramienta SaaS moderna.",
+      "cancelQuestion": "¿Puedo cancelar en cualquier momento?",
+      "cancelAnswer": "Sí, sin compromiso. Puedes cancelar tu suscripción en cualquier momento desde tu configuración de facturación.",
+      "trialQuestion": "¿Ofrecen una prueba gratuita?",
+      "trialAnswer": "Sí — cada cuenta comienza con una prueba gratuita de 14 días con acceso completo a todas las funciones, sin tarjeta de crédito requerida."
+    },
+    "testimonials": {
+      "label": "Testimonios",
+      "title": "Equipos que lanzan más rápido con agentes de IA.",
+      "subtitle": "Descubre cómo los operadores y fundadores automatizan sus flujos de trabajo."
+    },
+    "cta": {
+      "title": "¿Listo para poner tus flujos de trabajo en piloto automático?",
+      "subtitle": "Únete a miles de equipos que ya ahorran horas cada semana con agentes de IA autónomos.",
+      "button": "Iniciar prueba gratuita"
+    }
+  },
+  "plans": {
+    "free": {
+      "description": "Para principiantes",
+      "benefits": [
+        "Hasta 100 publicaciones mensuales",
+        "Análisis e informes básicos",
+        "Acceso a plantillas estándar"
+      ],
+      "limitations": [
+        "Sin acceso prioritario a nuevas funciones.",
+        "Soporte al cliente limitado",
+        "Sin marca personalizada",
+        "Acceso limitado a recursos empresariales."
+      ]
+    },
+    "pro": {
+      "description": "Desbloquear funciones avanzadas",
+      "benefits": [
+        "Hasta 500 publicaciones mensuales",
+        "Análisis e informes avanzados",
+        "Acceso a plantillas empresariales",
+        "Soporte al cliente prioritario",
+        "Seminarios web y capacitaciones exclusivos."
+      ],
+      "limitations": [
+        "Sin marca personalizada",
+        "Acceso limitado a recursos empresariales."
+      ]
+    },
+    "business": {
+      "description": "Para usuarios avanzados",
+      "benefits": [
+        "Publicaciones ilimitadas",
+        "Análisis e informes en tiempo real",
+        "Acceso a todas las plantillas, incluida la marca personalizada",
+        "Soporte empresarial 24/7",
+        "Incorporación personalizada y gestión de cuenta."
+      ],
+      "limitations": []
+    }
+  },
+  "comparePlans": {
+    "label": "Planes",
+    "title": "Comparar nuestros planes",
+    "subtitle": "¡Encuentra el plan perfecto para las necesidades de tu negocio!",
+    "features": [
+      { "name": "Acceso a análisis", "tooltip": "Todos los planes incluyen análisis básicos para seguir el rendimiento.", "enterprise": "Personalizado" },
+      { "name": "Marca personalizada", "tooltip": "La marca personalizada está disponible desde el plan Pro.", "pro": "500/mes", "business": "1.500/mes", "enterprise": "Ilimitado" },
+      { "name": "Soporte prioritario", "pro": "Correo", "business": "Correo y Chat", "enterprise": "Soporte 24/7" },
+      { "name": "Informes avanzados", "tooltip": "Los informes avanzados están disponibles en los planes Business y Enterprise.", "enterprise": "Personalizado" },
+      { "name": "Gestor dedicado", "tooltip": "El plan Enterprise incluye un gestor de cuenta dedicado." },
+      { "name": "Acceso a API", "free": "Limitado", "pro": "Estándar", "business": "Mejorado", "enterprise": "Completo" },
+      { "name": "Seminarios web mensuales", "tooltip": "Los planes Pro y superiores incluyen acceso a seminarios web mensuales.", "enterprise": "Personalizado" },
+      { "name": "Integraciones personalizadas", "tooltip": "Las integraciones personalizadas están disponibles en los planes Business y Enterprise.", "business": "Disponible", "enterprise": "Disponible" },
+      { "name": "Roles y permisos", "tooltip": "La gestión de roles y permisos mejora con planes superiores.", "pro": "Básico", "business": "Avanzado", "enterprise": "Avanzado" },
+      { "name": "Asistencia de incorporación", "tooltip": "Los planes superiores incluyen asistencia de incorporación más completa.", "pro": "Autoservicio", "business": "Asistido", "enterprise": "Servicio completo" }
+    ]
+  },
+  "help": {
+    "title": "Centro de ayuda",
+    "subtitle": "Guías y tutoriales para sacar el máximo partido a la plataforma.",
+    "noGuides": "No hay guías publicadas."
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Últimas noticias y actualizaciones del equipo."
+  },
+  "languageSwitcher": {
+    "label": "Idioma"
+  }
+}

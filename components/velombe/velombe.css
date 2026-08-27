@@ -1,0 +1,608 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   VELOMBE — scoped template stylesheet
+   ───────────────────────────────────────────────────────────────────────
+   Third in the set. Nocturne sells a product, Atelier sells a studio's
+   judgement, Velombe presents one engineer's evidence. Same zinc ground,
+   same type stack — but monospace is promoted to a first-class role here,
+   because metrics, tech names and terminal output are what make a
+   developer page read like a developer's.
+
+   ── THE ACCENT BUDGET ─────────────────────────────────────────────────
+   Lime is the only hue on the page, and it is rationed on purpose.
+
+     Lime means: live, verified, or mine.
+
+   Permitted:  the hero portrait's hard offset shadow (the single largest
+               lime mark, and the only one in its frame besides the
+               eyebrow) · the square in a section marker (wayfinding — one
+               per section; the label stays zinc) ·
+               process step markers · availability pulse · terminal `ok`
+               lines · ONE spotlight metric per band · the current role in
+               the experience rail · the client tag · the border beam ·
+               focus rings · ::selection · the contact underline sweep ·
+               the block labels in Selected Work and the case study pages
+               (Problem / What I built / Key decision / Also true) · the
+               case study pages' "Built with" tech-stack label · the group
+               titles in Technical Depth · hover states (transient, so
+               effectively free)
+   Forbidden:  body text · large fills · primary buttons (they stay white
+               — a lime button spends the whole budget in one place)
+
+   Target is roughly six lime marks per viewport-height. When a new one is
+   added, an old one should come out.
+
+   THREE EXCEPTIONS, deliberate.
+
+   FIRST: the five step markers in the How-I-build timeline. A repeated
+   element in a sequence reads as one object, not five separate signals —
+   the same reason a dashed line is not twenty marks. The rule they sit on
+   stays zinc so the dots remain the figure.
+
+   SECOND: the Selected Work block labels, which is what retires the
+   "one lime element per card" rule above — the flagship card alone carries
+   four (Problem, What I built, Key decision, Also true) at once. Each case
+   study page (components/velombe/case-study.tsx) repeats the
+   same four in its own dl, plus a fifth of its own — the "Built with"
+   label heading the tech-stack rail beside it, same page, same view. Same
+   repeated-element logic as the step markers: labels in one group read as
+   a set, not N separate claims, and they were dim enough at zinc-600 that
+   they stopped doing their job — a reader had to find each one instead of
+   scanning the shape of the argument. If a page starts reading noisy, this
+   is the first place to look — the case study pages are the largest single
+   concentration of lime anywhere on the site.
+
+   THIRD: the four group titles in Technical Depth (AI & agentic, Product &
+   frontend, Backend & data, Real-time & infrastructure), all visible at
+   once in the same grid — same repeated-element reasoning again, and the
+   same underlying problem the Work labels had: zinc-500 read as too quiet
+   for a heading that is doing the section's actual organizing work.
+
+   The value is #A3E635, not the brand's #84CC16, IN DARK MODE. globals.css
+   already records why: #84CC16 on near-black measures ~4.1:1 and fails AA
+   for text. The lighter ramp is the dark-mode value throughout this repo.
+
+   Light mode uses the brand value directly, #84CC16 — the AA failure above
+   is specific to a near-black ground; on the light surfaces here (#FAFAF9/
+   #FFFFFF) #84CC16 clears AA comfortably, so there is no reason to lighten
+   it further. Same split globals.css already uses for --primary.
+
+   Everything is namespaced under `.velombe`. This is the live copy — the
+   site's actual homepage — forked from components/templates/velombe/,
+   which still exists unchanged as the source for the /templates/velombe
+   showcase page. The two are independent from here on; nothing here is
+   deleted or kept in lockstep just because a sibling template changes.
+
+   Imported by app/[locale]/(landing)/layout.tsx
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Light is the default (no ancestor `.dark`); `.dark .velombe` below
+   overrides every one of these for the dark theme, which is a verbatim
+   copy of the values this template shipped with before light mode existed
+   — dark is a preserved default, not a new case. */
+.velombe {
+  /* Surfaces ------------------------------------------------------------ */
+  --v-bg: #fafaf9;
+  --v-surface: #ffffff;
+  --v-surface-strong: #f4f4f5;
+  --v-line: #e4e4e7;
+  --v-line-strong: #d4d4d8;
+  --v-line-soft: #f4f4f5;     /* quiet section-divider borders (was zinc-900) */
+
+  /* Ink ----------------------------------------------------------------- */
+  --v-fg: #18181b;
+  --v-muted: #52525b;
+  --v-faint: #71717a;
+  --v-faint-2: #3f3f46;
+
+  /* Primary CTA — inverts rather than following surface/ink, since the
+     button is literally white-on-dark today; on a light ground that pair
+     has to flip to a dark pill, or it disappears. */
+  --v-cta-bg: #18181b;
+  --v-cta-fg: #fafaf9;
+  --v-cta-glow: rgba(24, 24, 27, 0.25);
+  --v-shimmer-band: rgba(255, 255, 255, 0.15);
+
+  /* Accent — see the budget above before adding a use ------------------- */
+  --v-accent: #84cc16;
+  --v-accent-dim: rgba(132, 204, 22, 0.12);
+  --v-accent-line: rgba(132, 204, 22, 0.3);
+  --v-accent-glow: rgba(132, 204, 22, 0.35);
+  --v-beam-mid: rgba(132, 204, 22, 0.2);
+
+  /* Ambient/scrim treatments below were literal, dark-ground-only colors
+     until now — each gets a token pair here and in .dark .velombe. */
+  --v-scrim-1: rgba(255, 255, 255, 0.92);
+  --v-scrim-2: rgba(255, 255, 255, 0.12);
+  --v-scrim-3: rgba(255, 255, 255, 0.5);
+  --v-inset-line-color: transparent;
+  --v-halo-accent: rgba(132, 204, 22, 0.035);
+  --v-halo-glow-1: rgba(24, 24, 27, 0.035);
+  --v-halo-glow-2: rgba(24, 24, 27, 0.02);
+  --v-grid-line-color: rgba(24, 24, 27, 0.05);
+  --v-terminal-bg: #f4f4f5;
+  --v-terminal-bar-wash: rgba(0, 0, 0, 0.02);
+  --v-nav-shadow: rgba(24, 24, 27, 0.15);
+
+  --v-radius: 16px;
+  --v-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  background-color: var(--v-bg);
+  color: var(--v-fg);
+  font-family: var(--font-velombe-body), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dark — preserved exactly as this template shipped before light mode
+   existed. `.dark` lands on <html> (next-themes, attribute="class"), an
+   ancestor of `.velombe`, so this has to be `.dark .velombe`, not
+   `.velombe.dark`. */
+.dark .velombe {
+  /* Surfaces ------------------------------------------------------------ */
+  --v-bg: #09090b;            /* zinc-950 */
+  --v-surface: #18181b;       /* zinc-900 */
+  --v-surface-strong: #27272a; /* zinc-800 */
+  --v-line: #27272a;          /* zinc-800 — 1px hairlines */
+  --v-line-strong: #3f3f46;   /* zinc-700 — hover border */
+  --v-line-soft: #18181b;     /* zinc-900 — quiet section-divider borders */
+
+  /* Ink ----------------------------------------------------------------- */
+  --v-fg: #ffffff;
+  --v-muted: #a1a1aa;         /* zinc-400 */
+  --v-faint: #71717a;         /* zinc-500 — icons, meta */
+  --v-faint-2: #52525b;       /* zinc-600 */
+
+  /* Primary CTA ----------------------------------------------------------*/
+  --v-cta-bg: #ffffff;
+  --v-cta-fg: #09090b;
+  --v-cta-glow: rgba(255, 255, 255, 0.4);
+  --v-shimmer-band: rgba(9, 9, 11, 0.11);
+
+  /* Accent — see the budget above before adding a use ------------------- */
+  --v-accent: #a3e635;
+  --v-accent-dim: rgba(163, 230, 53, 0.12);
+  --v-accent-line: rgba(163, 230, 53, 0.3);
+  --v-accent-glow: rgba(163, 230, 53, 0.35);
+  --v-beam-mid: rgba(163, 230, 53, 0.2);
+
+  /* Ambient/scrim treatments — today's literal values, unchanged -------- */
+  --v-scrim-1: rgba(9, 9, 11, 0.9);
+  --v-scrim-2: rgba(9, 9, 11, 0.1);
+  --v-scrim-3: rgba(9, 9, 11, 0.4);
+  --v-inset-line-color: rgba(255, 255, 255, 0.09);
+  --v-halo-accent: rgba(163, 230, 53, 0.035);
+  --v-halo-glow-1: rgba(255, 255, 255, 0.05);
+  --v-halo-glow-2: rgba(255, 255, 255, 0.028);
+  --v-grid-line-color: rgba(255, 255, 255, 0.026);
+  --v-terminal-bg: #0b0b0d;
+  --v-terminal-bar-wash: rgba(255, 255, 255, 0.02);
+  --v-nav-shadow: rgba(0, 0, 0, 0.9);
+}
+
+/* ── Loading curtain background ──────────────────────────────────────────
+   A CSS class rather than an inline JS-computed value — see the long note
+   in loader.tsx. var(--v-bg) is safe to lean on here specifically because
+   this rule lives in the same stylesheet/scope every other themed pixel on
+   the page already depends on; the curtain gets no special exemption. */
+.v-loader-curtain {
+  background: var(--v-bg);
+}
+
+/* One of the cheapest accent uses on the page, and the one people notice
+   least consciously. */
+.velombe ::selection {
+  background: var(--v-accent);
+  color: #09090b;
+}
+
+/* Keyboard focus is an accent use that earns its place: it is functional,
+   not decorative, so it does not count against the budget. */
+.velombe :focus-visible {
+  outline: 2px solid var(--v-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Type roles ────────────────────────────────────────────────────────
+   Classes rather than Tailwind font-* utilities so the folder carries no
+   dependency on a matching @theme block. */
+.v-display {
+  font-family: var(--font-velombe-display), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+}
+.v-heading {
+  font-family: var(--font-velombe-heading), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.v-mono {
+  font-family: var(--font-velombe-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* The single-word accent. Used at most once per section. */
+.v-accent {
+  color: var(--v-accent);
+}
+
+/* ── Grain ─────────────────────────────────────────────────────────────
+   Fixed, not absolute: this page is ~12 screens tall, and a repeating
+   absolute layer that long forces a full-page composite every scroll
+   frame. */
+.v-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+/* ── Photographic scrim ────────────────────────────────────────────────
+   Pins a screenshot to the zinc-950 ground so it never floats as a bright
+   rectangle, and guarantees contrast for a caption on the bottom edge. */
+.v-scrim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to top, var(--v-scrim-1) 0%, var(--v-scrim-2) 42%, transparent 70%),
+    linear-gradient(to bottom, var(--v-scrim-3) 0%, transparent 30%);
+}
+
+/* Hairline inset — reads as a printed edge, and survives on top of an
+   image where a real border would be clipped by overflow. */
+.v-inset-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--v-inset-line-color);
+}
+
+/* ── Border beam ───────────────────────────────────────────────────────
+   Lime here rather than white — this is one of the budgeted accent uses.
+   The angle is a registered custom property because a plain one is not
+   interpolatable: without @property the gradient snaps 0→360 with no
+   motion in between. */
+@property --v-beam {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.v-beam {
+  position: relative;
+  isolation: isolate;
+}
+.v-beam::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Above the card body. A ::before paints before its element's children,
+     so without this the opaque panel inside would bury the ring. */
+  z-index: 1;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--v-beam),
+    transparent 0deg,
+    transparent 290deg,
+    var(--v-beam-mid) 320deg,
+    var(--v-accent) 350deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  animation: v-beam-spin 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes v-beam-spin {
+  to {
+    --v-beam: 360deg;
+  }
+}
+
+/* ── Marquee ───────────────────────────────────────────────────────────
+   Track holds the list twice; -50% lands exactly on the seam. */
+@keyframes v-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.v-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: v-marquee var(--v-marquee-duration, 52s) linear infinite;
+}
+.v-marquee:hover .v-marquee-track {
+  animation-play-state: paused;
+}
+.v-marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* ── Primary CTA shimmer ───────────────────────────────────────────────
+   The band has to be the opposite of the pill: --v-cta-bg is white in dark
+   mode and near-black in light mode (see .velombe/.dark .velombe), and a
+   same-tone band over a same-tone pill composites to invisible regardless
+   of blend mode. --v-shimmer-band tracks that inversion. */
+@keyframes v-shimmer {
+  0% {
+    background-position: 180% 0;
+  }
+  55%,
+  100% {
+    background-position: -80% 0;
+  }
+}
+.v-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: linear-gradient(
+    110deg,
+    transparent 34%,
+    var(--v-shimmer-band) 50%,
+    transparent 66%
+  );
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: v-shimmer 4.2s var(--v-ease) infinite;
+  pointer-events: none;
+}
+
+/* ── Ambience ──────────────────────────────────────────────────────────
+   The halo carries the faintest possible lime — a wash, not a glow. Push
+   this past ~4% and the page reads as a crypto landing rather than an
+   engineer's. */
+.v-halo {
+  background:
+    radial-gradient(ellipse 55% 40% at 50% 0%, var(--v-halo-accent) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 45% at 50% 0%, var(--v-halo-glow-1) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 55% at 50% 108%, var(--v-halo-glow-2) 0%, transparent 70%);
+}
+
+.v-grid-lines {
+  background-image:
+    linear-gradient(to right, var(--v-grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--v-grid-line-color) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000, transparent 75%);
+}
+
+/* ── Portrait blend ────────────────────────────────────────────────────
+   Bottom fade only, matching how the main landing page treats the same
+   asset (components/sections/hero-landing.tsx).
+
+   Bottom ONLY, deliberately. The source is a cut-out PNG with an alpha
+   channel, not a photo on a background — its left and right edges are
+   already transparent, and the figure spans most of the frame. An edge
+   fade from the left, which is what a framed photograph would want, would
+   erase the subject's arm rather than blend a background that is not
+   there. All this needs to do is dissolve the lower body into the page.
+
+   One mask layer, so no `mask-composite` and nothing to fall back from.
+
+   Two stops, because the two layouts need the fade in different places.
+
+   Below 640px the portrait is an in-flow block standing on the tech strip,
+   with its last ~56px tucked behind that opaque band. The desktop 55%→92%
+   ramp would be almost fully transparent by the time it reached the band,
+   so the figure would thin out to nothing in open space and the band would
+   arrive too late to mean anything. 68%→96% keeps the body solid and puts
+   the dissolve in the last stretch before the strip: roughly 30% alpha
+   where the band crosses, which is a figure fading INTO an edge rather than
+   one that evaporated before it got there.
+
+   From 640px up there is no band underneath — the portrait is absolute
+   against the hero's own background — so the fade has to do the whole job
+   on its own and starts much earlier. */
+/* Dark mode only — see the note above the halo/grid-lines tokens: in light
+   mode the area this fades into isn't a dark ground the figure can dissolve
+   into, it's the ambient wash behind it, and revealing that wash through
+   the mask read as a cloudy dark patch over the lower portrait instead of a
+   dissolve. No mask in light mode means a clean bottom edge instead. */
+.dark .v-portrait-blend {
+  -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 68%, transparent 96%);
+}
+
+@media (min-width: 640px) {
+  .dark .v-portrait-blend {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 92%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 92%);
+  }
+}
+
+/* ── Availability pulse ────────────────────────────────────────────────
+   currentColor so the same markup serves the lime-on-dark case in the
+   hero and the dark-on-lime case inside a white pill. */
+@keyframes v-pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70%,
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.v-pulse-ring {
+  animation: v-pulse-ring 2s var(--v-ease) infinite;
+}
+
+/* ── Terminal surface ──────────────────────────────────────────────────
+   Static CLI transcript used as a work artifact. One step darker than a
+   card so it reads as embedded output rather than another panel. */
+.v-terminal {
+  background: var(--v-terminal-bg);
+  border: 1px solid var(--v-line);
+}
+.v-terminal-bar {
+  border-bottom: 1px solid var(--v-line);
+  background: var(--v-terminal-bar-wash);
+}
+
+@keyframes v-caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.v-caret {
+  animation: v-caret 1.1s steps(1) infinite;
+}
+
+/* ── Oversized contact link ────────────────────────────────────────────
+   A lime rule that grows from the left. background-size is animated
+   rather than a scaled pseudo-element, so the line stays exactly 1px
+   through the whole transition instead of fattening as it grows. */
+.v-underline-sweep {
+  background-image: linear-gradient(var(--v-accent), var(--v-accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.6s var(--v-ease);
+}
+.v-underline-sweep:hover,
+.v-underline-sweep:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* ── Loading wordmark ──────────────────────────────────────────────────
+   The anime.js "ml2" letter reveal, in CSS. Each letter drops in from
+   scale(4) at opacity 0, staggered 70ms apart, then the word fades out
+   and the whole thing loops.
+
+   Original timeline, for reference:
+     letters   scale 4→1, opacity 0→1, easeOutExpo, 950ms, delay 70ms × i
+     wordmark  opacity → 0, easeOutExpo, 1000ms, after a 1000ms hold
+
+   Which gives, for the seven letters of `velombe`:
+     last letter lands   70×6 + 950  = 1370ms
+     fade-out starts     1370 + 1000 = 2370ms
+     cycle ends          2370 + 1000 = 3370ms   ← the 3.37s duration below
+     950/3370 = 28.2%    2370/3370 = 70.3%      ← the percentages below
+
+   ── Why the fade-out lives in the letter, not the wordmark ────────────
+   anime.js loops the whole TIMELINE, so every letter resets on the same
+   tick. CSS staggers with `animation-delay`, which offsets each letter's
+   loop permanently — letter 7 restarts 420ms after letter 1, forever. Put
+   the fade on the parent and the two clocks desync: the parent snaps back
+   to opacity 1 while the last letters are still sitting at their finished
+   state, so they hang there fully formed and then pop out. Baking the
+   fade into the letter keeps each one self-contained.
+
+   That is also what makes the loop seamless. The keyframe ends at opacity
+   0 and begins at opacity 0, so the jump back to scale(4) happens while
+   the letter is invisible. Nothing to hide, nothing to sync.
+
+   The cost is that the exit staggers too, 70ms per letter, where the
+   original fades the word out as one block. It reads as a deliberate
+   wave-out that answers the wave-in, which is the better trade.
+
+   ── Easing ────────────────────────────────────────────────────────────
+   easeOutExpo is cubic-bezier(0.16, 1, 0.3, 1) — already this template's
+   `--v-ease`. Declared inside the keyframes rather than on the shorthand
+   because a timing function set at a keyframe governs the segment that
+   STARTS there: the pop-in and the fade-out get the expo curve, and the
+   hold between them is left linear so it does not creep.
+
+   ── On reduced motion ─────────────────────────────────────────────────
+   No `animation-fill-mode`. When the blanket rule at the foot of this
+   file collapses the duration to 0.001ms the animation finishes and the
+   element reverts to its own computed style — the plain white wordmark
+   below, not whatever the 0% keyframe said. Add `forwards` here and it
+   would freeze at scale(4), invisible. */
+@keyframes v-wordmark-in {
+  0% {
+    opacity: 0;
+    transform: scale(4);
+    animation-timing-function: var(--v-ease);
+  }
+  28.2% {
+    opacity: 1;
+    transform: scale(1);
+    animation-timing-function: linear;
+  }
+  70.3% {
+    opacity: 1;
+    transform: scale(1);
+    animation-timing-function: var(--v-ease);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.v-wordmark-letter {
+  display: inline-block;
+  color: var(--v-fg);
+  animation: v-wordmark-in 3.37s infinite;
+}
+
+/* ── Section rule snake ────────────────────────────────────────────────
+   PARKED with SectionRule in primitives.tsx — nothing renders this today.
+   Kept alongside the component so the two do not drift apart while the
+   seam treatment is being reconsidered.
+
+   The lime shape that slides along the seam rule between sections.
+
+   One silhouette, not a body plus a separate head: a seven-point polygon
+   that starts as a narrow tail at the top, widens down the body, throws
+   out two shoulders, and comes to a point. Two stacked elements would need
+   their widths, colours and glows kept in step by hand, and the seam
+   between them shows the moment either one is off by a pixel.
+
+   Symmetric about 50%, so `scaleY(-1)` turns the head around cleanly —
+   which is how it points the way it is travelling.
+
+   Tail is 16% of the box. On the 11px box that is ~1.8px, just wider than
+   the 1px rail it rides, so the tail reads as thickening out of the line
+   rather than as a second object sitting on it.
+
+   drop-shadow rather than box-shadow: box-shadow ignores clip-path and
+   would draw a rectangular halo around a pointed shape. */
+.v-snake {
+  clip-path: polygon(42% 0, 58% 0, 70% 76%, 100% 76%, 50% 100%, 0 76%, 30% 76%);
+  filter: drop-shadow(0 0 6px var(--v-accent-glow));
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────
+   All of the above is decorative; nothing here carries meaning that is
+   lost when it stops. */
+@media (prefers-reduced-motion: reduce) {
+  .velombe *,
+  .velombe *::before,
+  .velombe *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

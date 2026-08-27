@@ -1,0 +1,471 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────────────────
+   LIGHT MODE  — cool slate + lime brand
+   Neutrals are deliberately cool (zinc family): lime is the only hue in
+   the palette, and warm tints fight it.
+───────────────────────────────────────────────────────────────────────── */
+:root {
+  --background:               #FAFAF9;
+  --foreground:               #18181B;
+  --card:                     #FFFFFF;
+  --card-foreground:          #18181B;
+  --popover:                  #FFFFFF;
+  --popover-foreground:       #18181B;
+  --primary:                  #84CC16;   /* brand lime — used everywhere */
+  --primary-foreground:       #1A2E05;   /* dark lime-black — white on lime fails contrast */
+  --secondary:                #F4F4F5;
+  --secondary-foreground:     #18181B;
+  --muted:                    #F4F4F5;
+  --muted-foreground:         #71717A;
+  --accent:                   #F4F4F5;
+  --accent-foreground:        #18181B;
+  --destructive:              #DC2626;
+  --destructive-foreground:   #FFFFFF;
+  --border:                   #E4E4E7;
+  --input:                    #E4E4E7;
+  --ring:                     #84CC16;
+  --chart-1:                  #84CC16;
+  --chart-2:                  #F43F5E;
+  --chart-3:                  #EC4899;
+  --chart-4:                  #8B5CF6;
+  --chart-5:                  #3B82F6;
+  --sidebar:                  #F4F4F5;
+  --sidebar-foreground:       #18181B;
+  --sidebar-primary:          #84CC16;
+  --sidebar-primary-foreground:#1A2E05;
+  --sidebar-accent:           #F4F4F5;
+  --sidebar-accent-foreground:#18181B;
+  --sidebar-border:           #E4E4E7;
+  --sidebar-ring:             #84CC16;
+
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --radius: 0.625rem;
+
+  --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs:  0 1px 3px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm:  0 1px 3px 0px hsl(0 0% 0% / 0.08), 0 1px 2px -1px hsl(0 0% 0% / 0.08);
+  --shadow:     0 1px 3px 0px hsl(0 0% 0% / 0.08), 0 1px 2px -1px hsl(0 0% 0% / 0.08);
+  --shadow-md:  0 1px 3px 0px hsl(0 0% 0% / 0.08), 0 2px 4px -1px hsl(0 0% 0% / 0.08);
+  --shadow-lg:  0 1px 3px 0px hsl(0 0% 0% / 0.08), 0 4px 6px -1px hsl(0 0% 0% / 0.08);
+  --shadow-xl:  0 1px 3px 0px hsl(0 0% 0% / 0.08), 0 8px 10px -1px hsl(0 0% 0% / 0.08);
+  --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.20);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Brand gradient — lime ramp (decorative text/accents) */
+  --gradient-from: #4D7C0F;
+  --gradient-via:  #84CC16;
+  --gradient-to:   #BEF264;
+
+  /* Glow shadows */
+  --glow-base:   rgba(132, 204, 22, 0.30);
+  --glow-subtle: rgba(132, 204, 22, 0.12);
+
+  /* Background mesh gradients (hero, CTA sections) */
+  --mesh-gradient:
+    radial-gradient(ellipse 80% 60% at 60% -10%, rgba(132,204,22,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at -10% 40%, rgba(190,242,100,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 100% 80%, rgba(217,249,157,0.08) 0%, transparent 55%);
+
+  /* Frosted navbar background */
+  --nav-bg: rgba(250, 250, 249, 0.85);
+
+  /* SVG decoration opacities (adjust per theme) */
+  --pattern-opacity: 0.055;
+  --corner-opacity:  0.35;
+  --float-opacity:   0.08;
+
+  /* Project category badge colours */
+  --cat-ai-bg:       #F1FBDE; --cat-ai-text:       #4D7C0F; --cat-ai-border:       rgba(132,204,22,0.2);
+  --cat-saas-bg:     #F0FDF4; --cat-saas-text:     #15803D; --cat-saas-border:     rgba(34,197,94,0.2);
+  --cat-tool-bg:     #EFF6FF; --cat-tool-text:     #1D4ED8; --cat-tool-border:     rgba(59,130,246,0.2);
+  --cat-web-bg:      #FAF5FF; --cat-web-text:      #7C3AED; --cat-web-border:      rgba(139,92,246,0.2);
+  --cat-platform-bg: #F4F4F5; --cat-platform-text: #3F3F46; --cat-platform-border: rgba(113,113,122,0.2);
+
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   DARK MODE  — obsidian + lime  (the primary design target)
+   Lime lightens to #A3E635 here: #84CC16 on near-black is ~4.1:1 and
+   fails AA for body text.
+───────────────────────────────────────────────────────────────────────── */
+.dark {
+  --background:               #0A0A0B;
+  --foreground:               #FAFAFA;
+  --card:                     #131316;
+  --card-foreground:          #FAFAFA;
+  --popover:                  #131316;
+  --popover-foreground:       #FAFAFA;
+  --primary:                  #A3E635;   /* lighter lime — clears AA on obsidian */
+  --primary-foreground:       #0A0A0B;   /* near-black on a lime fill */
+  --secondary:                #18181B;
+  --secondary-foreground:     #FAFAFA;
+  --muted:                    #18181B;
+  --muted-foreground:         #A1A1AA;
+  --accent:                   #1F1F23;
+  --accent-foreground:        #FAFAFA;
+  --destructive:              #FF6467;
+  --destructive-foreground:   #FFFFFF;
+  --border:                   #26262B;
+  --input:                    #26262B;
+  --ring:                     #A3E635;
+  --chart-1:                  #A3E635;
+  --chart-2:                  #F43F5E;
+  --chart-3:                  #EC4899;
+  --chart-4:                  #8B5CF6;
+  --chart-5:                  #3B82F6;
+  --sidebar:                  #08080A;
+  --sidebar-foreground:       #FAFAFA;
+  --sidebar-primary:          #A3E635;
+  --sidebar-primary-foreground:#0A0A0B;
+  --sidebar-accent:           #18181B;
+  --sidebar-accent-foreground:#FAFAFA;
+  --sidebar-border:           #26262B;
+  --sidebar-ring:             #A3E635;
+
+  /* Glow shadows — track the lightened dark-mode lime */
+  --glow-base:   rgba(163, 230, 53, 0.28);
+  --glow-subtle: rgba(163, 230, 53, 0.10);
+
+  /* Dark mesh — same shape, lower opacity.
+     Obsidian is darker than the old #0D0D0F, so the bloom reads stronger
+     at equal alpha; these are pulled down to compensate. */
+  --mesh-gradient:
+    radial-gradient(ellipse 80% 60% at 60% -10%, rgba(163,230,53,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at -10% 40%, rgba(190,242,100,0.035) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 100% 80%, rgba(163,230,53,0.03) 0%, transparent 55%);
+
+  --nav-bg: rgba(10, 10, 11, 0.85);
+
+
+  /* SVG decorations — slightly more visible on dark */
+  --pattern-opacity: 0.07;
+  --corner-opacity:  0.40;
+  --float-opacity:   0.12;
+
+  /* Project category badge colours — lighter for dark mode */
+  --cat-ai-bg:       rgba(163,230,53,0.12);  --cat-ai-text:       #A3E635; --cat-ai-border:       rgba(163,230,53,0.25);
+  --cat-saas-bg:     rgba(34,197,94,0.10);   --cat-saas-text:     #4ADE80; --cat-saas-border:     rgba(34,197,94,0.2);
+  --cat-tool-bg:     rgba(59,130,246,0.10);  --cat-tool-text:     #60A5FA; --cat-tool-border:     rgba(59,130,246,0.2);
+  --cat-web-bg:      rgba(139,92,246,0.10);  --cat-web-text:      #A78BFA; --cat-web-border:      rgba(139,92,246,0.2);
+  --cat-platform-bg: rgba(161,161,170,0.10); --cat-platform-text: #D4D4D8; --cat-platform-border: rgba(161,161,170,0.2);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   TAILWIND THEME MAPPING
+───────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  --color-background:                var(--background);
+  --color-foreground:                var(--foreground);
+  --color-card:                      var(--card);
+  --color-card-foreground:           var(--card-foreground);
+  --color-popover:                   var(--popover);
+  --color-popover-foreground:        var(--popover-foreground);
+  --color-primary:                   var(--primary);
+  --color-primary-foreground:        var(--primary-foreground);
+  --color-secondary:                 var(--secondary);
+  --color-secondary-foreground:      var(--secondary-foreground);
+  --color-muted:                     var(--muted);
+  --color-muted-foreground:          var(--muted-foreground);
+  --color-accent:                    var(--accent);
+  --color-accent-foreground:         var(--accent-foreground);
+  --color-destructive:               var(--destructive);
+  --color-destructive-foreground:    var(--destructive-foreground);
+  --color-border:                    var(--border);
+  --color-input:                     var(--input);
+  --color-ring:                      var(--ring);
+  --color-chart-1:                   var(--chart-1);
+  --color-chart-2:                   var(--chart-2);
+  --color-chart-3:                   var(--chart-3);
+  --color-chart-4:                   var(--chart-4);
+  --color-chart-5:                   var(--chart-5);
+  --color-sidebar:                   var(--sidebar);
+  --color-sidebar-foreground:        var(--sidebar-foreground);
+  --color-sidebar-primary:           var(--sidebar-primary);
+  --color-sidebar-primary-foreground:var(--sidebar-primary-foreground);
+  --color-sidebar-accent:            var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:            var(--sidebar-border);
+  --color-sidebar-ring:              var(--sidebar-ring);
+
+  /* Brand gradient tokens → from-gradient-from, via-gradient-via, to-gradient-to */
+  --color-gradient-from: var(--gradient-from);
+  --color-gradient-via:  var(--gradient-via);
+  --color-gradient-to:   var(--gradient-to);
+
+  --font-sans:   var(--font-sans);
+  --font-mono:   var(--font-mono);
+  --font-serif:  var(--font-serif);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs:  var(--shadow-xs);
+  --shadow-sm:  var(--shadow-sm);
+  --shadow:     var(--shadow);
+  --shadow-md:  var(--shadow-md);
+  --shadow-lg:  var(--shadow-lg);
+  --shadow-xl:  var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --animate-marquee:    marquee 35s linear infinite;
+  --animate-glow-pulse: glow-pulse 2.5s ease-in-out infinite;
+  --animate-gradient:   gradient-shift 5s ease infinite;
+  --animate-browser-float: browser-float 5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BASE STYLES
+───────────────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3 {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   CUSTOM UTILITY CLASSES
+   Usage: className="gradient-text"
+   Stateless utilities use @utility (Tailwind v4).
+   Stateful component classes (.btn-primary, .btn-ghost) use @layer components.
+───────────────────────────────────────────────────────────────────────── */
+
+/* Gradient text — amber→rose→pink (logos, accents) */
+@utility gradient-text {
+  background: linear-gradient(135deg, var(--gradient-from), var(--gradient-via), var(--gradient-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Warm gradient text — lime tones only, no pink (headlines) */
+@utility gradient-text-warm {
+  background: linear-gradient(135deg, #65A30D 0%, #84CC16 55%, #A3E635 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Warm gradient text with a light band that sweeps across (living sheen) */
+@utility gradient-text-warm-sheen {
+  background: linear-gradient(
+    110deg,
+    #65A30D 0%,
+    #84CC16 30%,
+    #ECFCCB 50%,
+    #84CC16 70%,
+    #4D7C0F 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text-warm-sheen {
+    animation: none;
+  }
+}
+
+/* Button component classes with hover states */
+@layer components {
+  .btn-primary {
+    /* Light→dark lime, left to right. Label is dark: the first 55% of this
+       ramp is light enough that white text fails contrast outright. */
+    background: linear-gradient(to right, #BEF264 0%, #84CC16 55%, #4D7C0F 100%);
+    color: #1A2E05;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 24px var(--glow-base);
+    }
+  }
+
+  .btn-ghost {
+    border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    color: var(--primary);
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* ── Geometric "cut-corner" buttons ──────────────────────────────────
+     Straight corners, only the bottom-right corner chamfered. Flat fills
+     (no gradient) for a dark, premium feel. Solid + outline variants.
+     The outline's border follows the notch via a double-clip layer.       */
+  .btn-cut {
+    --cut: 13px;
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition:
+      transform 0.25s ease,
+      background 0.25s ease,
+      color 0.25s ease,
+      filter 0.25s ease;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%
+    );
+  }
+
+  .btn-cut .btn-cut-label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Solid — flat brand lime */
+  .btn-cut-solid {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+  .btn-cut-solid:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06) drop-shadow(0 8px 22px var(--glow-base));
+  }
+
+  /* Outline — hairline that traces the notch, dark interior */
+  .btn-cut-outline {
+    --bw: 1.5px;
+    background: color-mix(in srgb, var(--foreground) 24%, transparent);
+    color: var(--foreground);
+  }
+  .btn-cut-outline::before {
+    content: "";
+    position: absolute;
+    inset: var(--bw);
+    z-index: -1;
+    background: var(--background);
+    transition: background 0.25s ease;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - (var(--cut) - var(--bw))),
+      calc(100% - (var(--cut) - var(--bw))) 100%,
+      0 100%
+    );
+  }
+  /* Hover fills solid rather than only tinting the hairline: lime text on
+     the page background is ~2.4:1 in light mode. Filling the ::before too
+     makes the label sit on lime, so --primary-foreground applies. */
+  .btn-cut-outline:hover::before {
+    background: var(--primary);
+  }
+  .btn-cut-outline:hover {
+    transform: translateY(-2px);
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  /* ── Terminal surface ────────────────────────────────────────────────
+     Ground for static CLI-transcript artifacts. Derived from --muted so
+     it sits a step away from --card in both themes without hardcoding a
+     color; oklab keeps the mix perceptually even.                        */
+  .terminal-surface {
+    background: color-mix(in oklab, var(--muted) 70%, var(--background));
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .terminal-surface .terminal-bar {
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in oklab, var(--muted) 90%, var(--background));
+  }
+
+  /* Film-grain noise overlay — pure CSS/SVG, no image files */
+  .grain {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+  }
+
+  /* Dark mode: screen blend makes grain visible on near-black backgrounds.
+     Lowered for true obsidian — screen blend reads stronger the darker the
+     ground, and 0.12 was tuned against the older #0D0D0F. */
+  .dark .grain {
+    opacity: 0.085;
+    mix-blend-mode: screen;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@keyframes orbit-cw  { to { transform: rotate(360deg);  } }
+@keyframes orbit-ccw { to { transform: rotate(-360deg); } }
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px var(--glow-subtle), 0 0 30px var(--glow-subtle); }
+  50%       { box-shadow: 0 0 25px var(--glow-base),   0 0 50px var(--glow-subtle); }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Idle float for the BrowserMockup (2–4px vertical drift) */
+@keyframes browser-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-browser-float { animation: none; }
+}

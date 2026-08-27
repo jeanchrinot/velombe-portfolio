@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Velombe">
+  <title>Velombe</title>
+  <!-- Standalone app-icon / favicon build.
+
+       The two arm paths, the stroke width and the caps below are
+       byte-identical to SHORT_ARM, LONG_ARM and STROKE_WIDTH in
+       components/templates/velombe/logo.tsx. Do not "tidy" the numbers here
+       on their own — the two drifting apart is exactly the bug this replaced,
+       where the favicon and the navbar were subtly different marks.
+
+       Colours are literal rather than currentColor: a favicon renders outside
+       any page, so a CSS variable has nothing to resolve against and
+       currentColor falls back to black.
+
+       The dark squircle is not decoration — it guarantees contrast for the
+       white arm whatever the browser tab bar, OS or social card puts
+       behind it.
+
+       The 0.82 scale is padding. Icon grids crop and mask, and a mark that
+       runs to the edge of its tile gets clipped by rounded-corner masking on
+       iOS and Android.
+
+       Draw order matters: the long arm is painted second so its round
+       start-cap owns the vertex, same as in logo.tsx. -->
+  <rect width="64" height="64" rx="16" fill="#09090B"/>
+  <g transform="translate(32 32) scale(0.82) translate(-32 -32)" fill="none" stroke-linecap="round" stroke-width="10">
+    <path d="M17 33 L26 48" stroke="#FFFFFF"/>
+    <path d="M26 48 L47 16" stroke="#A3E635"/>
+  </g>
+</svg>
