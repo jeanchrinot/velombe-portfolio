@@ -28,7 +28,7 @@ Visit `http://localhost:3000`.
 
 ## Structure
 
-- `app/[locale]/(landing)/` — every route (`/`, `/work/[slug]`, `/hire`, `/colophon`, `/privacy`, `/terms`)
+- `app/(landing)/` — every route (`/`, `/work/[slug]`, `/hire`, `/colophon`, `/privacy`, `/terms`)
 - `components/velombe/` — the entire design system for the site, self-contained
 - `lib/data/projects.ts` — the project data behind the case study pages
 

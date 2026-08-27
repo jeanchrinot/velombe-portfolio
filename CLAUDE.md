@@ -20,8 +20,7 @@ There is no auth, no dashboard, no billing, no blog, no docs, no templates marke
 ## 🛠️ Tech Stack
 
 - **Framework:** Next.js 16 (App Router), React 19, TypeScript
-- **Routing:** `app/[locale]/(landing)/` for every route; `[locale]` drives i18n
-- **i18n:** next-intl — locales: `en`, `fr`, `de`, `es` (default: `en`)
+- **Routing:** `app/(landing)/` for every route — single-locale, no i18n routing (the source repo's next-intl setup was dropped along with the multi-locale content it existed to serve; every string in `components/velombe/*` is hardcoded English)
 - **Styling:** Tailwind CSS v4, no shadcn/ui (the `components/velombe/` folder is fully self-contained — its own primitives, no `components/ui`)
 - **Animations:** motion/react
 - **Theme:** next-themes — dark by default, light is an explicit opt-in via the nav toggle (see `components/velombe/mode-toggle.tsx`)
@@ -34,7 +33,7 @@ No database, no auth provider, no payments provider. `env.mjs` only validates `A
 
 ## 🎨 Design System
 
-Everything under `(landing)` renders through `components/velombe/*`, wrapped in a single `.velombe` scoping class (`app/[locale]/(landing)/layout.tsx`). It is a **fully self-contained, independently-deletable** component tree: it imports nothing from `components/ui`, `components/shared`, `hooks/`, or `config/` (none of those exist in this repo), and defines its own type roles, primitives (`Card`, `ShimmerButton`, `GhostButton`, `Eyebrow`, `SectionHeader`, `Metric`, `Reveal`), and font stack.
+Everything under `(landing)` renders through `components/velombe/*`, wrapped in a single `.velombe` scoping class (`app/(landing)/layout.tsx`). It is a **fully self-contained, independently-deletable** component tree: it imports nothing from `components/ui`, `components/shared`, `hooks/`, or `config/` (none of those exist in this repo), and defines its own type roles, primitives (`Card`, `ShimmerButton`, `GhostButton`, `Eyebrow`, `SectionHeader`, `Metric`, `Reveal`), and font stack.
 
 **Accent color:** lime — `#A3E635` in dark mode, `#84CC16` (the brand value) in light mode. Rationed on purpose: see the "ACCENT BUDGET" comment block at the top of `components/velombe/velombe.css` before adding a new lime element. Target is roughly six lime marks per viewport-height.
 
@@ -47,7 +46,7 @@ Everything under `(landing)` renders through `components/velombe/*`, wrapped in 
 ## 📁 Key Files & Directories
 
 ```
-app/[locale]/(landing)/
+app/(landing)/
   layout.tsx            # Nav, footer, loader, .velombe wrapper — every route inherits this
   page.tsx               # Homepage
   hire/page.tsx
@@ -96,7 +95,7 @@ actions/hire.ts             # The /hire form's server action — Zod validation 
 To add a new case study:
 1. Add a `Project` entry to `lib/data/projects.ts` (slug, title, screenshot, liveUrl, etc.)
 2. Add a `CaseStudy` entry to `components/velombe/case-studies.ts` (stats, architecture, features, techStack, cta — all copy lives in data)
-3. The dynamic route `app/[locale]/(landing)/work/[slug]/page.tsx` auto-renders it via `case-study.tsx`
+3. The dynamic route `app/(landing)/work/[slug]/page.tsx` auto-renders it via `case-study.tsx`
 
 ---
 
@@ -109,7 +108,7 @@ export const metadata = constructMetadata({
   description: "...",
 });
 ```
-Note it unconditionally appends `" | Velombe"` to whatever `title` you pass — for a literal full title that already contains the site name, spread the result and override `title` afterward (see `app/[locale]/(landing)/page.tsx` for the pattern).
+Note it unconditionally appends `" | Velombe"` to whatever `title` you pass — for a literal full title that already contains the site name, spread the result and override `title` afterward (see `app/(landing)/page.tsx` for the pattern).
 
 ---
 
