@@ -32,7 +32,7 @@ type Instance = { scrollTo: (top: number) => void };
 let instance: Instance | null = null;
 
 /** Animate to an element id through the active smooth-scroll instance. */
-export function velombeScrollTo(hash: string, offset = 88) {
+export function scrollToHash(hash: string, offset = 88) {
   const el = document.querySelector(hash);
   if (!el) return;
   const top = el.getBoundingClientRect().top + window.scrollY - offset;

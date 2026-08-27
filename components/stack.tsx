@@ -14,7 +14,7 @@ import { Reveal, ScrollLink, Section, SectionHeader } from "./primitives";
  * already inside one project — a case-study page for the Voice AI Platform
  * or Twy has the context that makes each edge mean something.
  *
- * To bring it back: import and render <VelombeStack /> from a page.
+ * To bring it back: import and render <Stack /> from a page.
  * Its copy lives in STACK in data.ts and is still maintained.
  *
  * ── What it is ────────────────────────────────────────────────────────
@@ -35,7 +35,7 @@ import { Reveal, ScrollLink, Section, SectionHeader } from "./primitives";
  * structure — so it degrades into exactly the same diagram, read downward.
  * No horizontal scroll, no pinch-zoom.
  */
-export function VelombeStack() {
+export function Stack() {
   return (
     <Section id="system">
       <SectionHeader

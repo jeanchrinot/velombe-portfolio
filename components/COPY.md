@@ -93,7 +93,7 @@ The look should say *this person reads logs* — without a single fake terminal
 or matrix-green cliché. Reference points: a well-set technical spec sheet, not
 a SaaS landing page.
 
-Full accent rules live at the top of `velombe.css`. Summary: ~6 lime marks per
+Full accent rules live at the top of `portfolio.css`. Summary: ~6 lime marks per
 viewport-height, never on body text, never on a primary button.
 
 ### 0.5 Primary visitor journey

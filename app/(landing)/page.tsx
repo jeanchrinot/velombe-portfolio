@@ -1,9 +1,9 @@
-import { VelombeAbout } from "@/components/velombe/about";
-import { VelombeBuild } from "@/components/velombe/build";
-import { VelombeContact } from "@/components/velombe/contact";
-import { VelombeDepth } from "@/components/velombe/depth";
-import { VelombeHeroPortrait } from "@/components/velombe/hero-portrait";
-import { VelombeWork } from "@/components/velombe/work";
+import { About } from "@/components/about";
+import { Build } from "@/components/build";
+import { Contact } from "@/components/contact";
+import { Depth } from "@/components/depth";
+import { HeroPortrait } from "@/components/hero-portrait";
+import { Work } from "@/components/work";
 import { constructMetadata } from "@/lib/utils";
 
 const TITLE = "Jean Chrinot Velombe - AI Systems Engineer";
@@ -25,16 +25,13 @@ export const metadata = {
 };
 
 /**
- * The real homepage, rendered from components/velombe/ — forked from the
- * (templates)/templates/velombe demo, which still exists unchanged at
- * /templates/velombe and renders the same components independently from
- * its own untouched copy under components/templates/velombe/. Nav and
- * footer moved out of this file and into layout.tsx, where they wrap
- * every page in this route group instead of just this one.
+ * The homepage, rendered from components/. Nav and footer live in
+ * layout.tsx, where they wrap every page in this route group instead of
+ * just this one.
  *
- * Section order follows COPY.md §0.3 (components/velombe/).
+ * Section order follows COPY.md §0.3.
  *
- * The dependency-graph section (components/velombe/stack.tsx) is PARKED,
+ * The dependency-graph section (components/stack.tsx) is PARKED,
  * not deleted — it sat here at position two and is now unrendered, kept
  * for reuse on a case-study page where the relationships it draws have a
  * project to hang off. Re-adding it is one import and one line.
@@ -52,15 +49,15 @@ export default function LandingPage() {
     <main>
       {/* Three hero variants exist. Only this one is rendered; the other
           two are parked and swap in by changing this line:
-            hero.tsx         → <VelombeHero />        (portrait on the
+            hero.tsx         → <Hero />        (portrait on the
                                right as a squircle, centred column)
-            hero-pinned.tsx  → <VelombeHeroPinned />  (scroll sequence) */}
-      <VelombeHeroPortrait />
-      <VelombeWork />
-      <VelombeBuild />
-      <VelombeAbout />
-      <VelombeDepth />
-      <VelombeContact />
+            hero-pinned.tsx  → <HeroPinned />  (scroll sequence) */}
+      <HeroPortrait />
+      <Work />
+      <Build />
+      <About />
+      <Depth />
+      <Contact />
     </main>
   );
 }

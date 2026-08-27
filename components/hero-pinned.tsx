@@ -7,7 +7,7 @@
    blocks redistributed across frames.
 
    The static hero in hero.tsx is what ships. To try this again, import
-   VelombeHeroPinned in the page instead. Its extra copy lives in
+   HeroPinned in the page instead. Its extra copy lives in
    HERO.greeting / HERO.closing / HERO.sceneLabels in data.ts.
 */
 
@@ -31,9 +31,9 @@ import {
   ShimmerButton,
   SlicedLines,
   StatusDot,
-  VELOMBE_SPRING,
+  SPRING,
 } from "./primitives";
-import { VelombeTechStrip } from "./tech-strip";
+import { TechStrip } from "./tech-strip";
 
 /* ═════════════════════════════════════════════════════════════════════════
    PINNED HERO SEQUENCE
@@ -69,7 +69,7 @@ const SCENES = 2;
 /** Scroll height per layer. Two layers of 110vh = a 220vh pin. */
 const SCENE_VH = 110;
 
-export function VelombeHeroPinned() {
+export function HeroPinned() {
   const ref = useRef<HTMLElement>(null);
 
   // "start start" → progress 0 when the section top meets the viewport top;
@@ -108,7 +108,7 @@ export function VelombeHeroPinned() {
         </div>
       </section>
 
-      <VelombeTechStrip />
+      <TechStrip />
     </>
   );
 }
@@ -204,7 +204,7 @@ function Intro() {
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...VELOMBE_SPRING, delay: 0.15 }}
+            transition={{ ...SPRING, delay: 0.15 }}
             className="v-heading inline-flex items-center gap-2.5 rounded-full border border-zinc-800 bg-zinc-900/60 py-1.5 pl-2.5 pr-4 text-[11px] font-medium uppercase tracking-[0.14em] text-zinc-400 backdrop-blur-md"
           >
             <StatusDot className="text-[var(--v-accent)]" />
@@ -397,7 +397,7 @@ function Portrait() {
     <motion.div
       initial={{ opacity: 0, scale: 0.88 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ ...VELOMBE_SPRING, delay: 0.25 }}
+      transition={{ ...SPRING, delay: 0.25 }}
       className="relative size-28 shrink-0 overflow-hidden rounded-full ring-1 ring-zinc-800 sm:size-40 lg:size-48"
     >
       <Image

@@ -12,9 +12,9 @@ import {
   GhostButton,
   ShimmerButton,
   SlicedLines,
-  VELOMBE_SPRING,
+  SPRING,
 } from "./primitives";
-import { VelombeTechStrip } from "./tech-strip";
+import { TechStrip } from "./tech-strip";
 
 /**
  * Three-row editorial hero: portrait and rotating claim, specimen line, then
@@ -27,7 +27,7 @@ import { VelombeTechStrip } from "./tech-strip";
  * five-second answer, and text that changes while you read it is worse at
  * that job than text that does not.
  */
-export function VelombeHero() {
+export function Hero() {
   return (
     <section
       id="top"
@@ -45,7 +45,7 @@ export function VelombeHero() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...VELOMBE_SPRING, delay: 0.15 }}
+          transition={{ ...SPRING, delay: 0.15 }}
         >
           <Eyebrow>{HERO.eyebrow}</Eyebrow>
         </motion.div>
@@ -102,7 +102,7 @@ export function VelombeHero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...VELOMBE_SPRING, delay: 0.55 }}
+            transition={{ ...SPRING, delay: 0.55 }}
           >
             <p className="max-w-xl text-pretty text-[15px] leading-relaxed text-[var(--v-muted)] sm:text-base">
               {HERO.subhead}
@@ -126,7 +126,7 @@ export function VelombeHero() {
           <motion.dl
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...VELOMBE_SPRING, delay: 0.65 }}
+            transition={{ ...SPRING, delay: 0.65 }}
             className="grid grid-cols-2 gap-px self-start overflow-hidden rounded-xl bg-[var(--v-line)]/80"
           >
             {HERO.ledger.map((entry) => (
@@ -154,7 +154,7 @@ export function VelombeHero() {
         </div>
       </div>
 
-      <VelombeTechStrip />
+      <TechStrip />
     </section>
   );
 }
@@ -188,7 +188,7 @@ function Portrait() {
     <motion.div
       initial={{ opacity: 0, scale: 0.92, y: 8 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ ...VELOMBE_SPRING, delay: 0.25 }}
+      transition={{ ...SPRING, delay: 0.25 }}
       className={cn(
         "relative size-40 shrink-0 overflow-hidden rounded-[2rem] ring-1 ring-[var(--v-line)] sm:size-48 lg:size-56",
         "shadow-[12px_12px_0_0_var(--v-accent)]",

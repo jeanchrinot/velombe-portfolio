@@ -11,9 +11,9 @@ import {
   GhostButton,
   ShimmerButton,
   SlicedLines,
-  VELOMBE_SPRING,
+  SPRING,
 } from "./primitives";
-import { VelombeTechStrip } from "./tech-strip";
+import { TechStrip } from "./tech-strip";
 
 /**
  * Portrait-led hero: text column left, a standing figure on the right whose
@@ -37,7 +37,7 @@ import { VelombeTechStrip } from "./tech-strip";
  * DOM order is the mobile layout. From `sm` up the element goes absolute
  * and order stops mattering.
  */
-export function VelombeHeroPortrait() {
+export function HeroPortrait() {
   return (
     <section
       id="top"
@@ -61,7 +61,7 @@ export function VelombeHeroPortrait() {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...VELOMBE_SPRING, delay: 0.15 }}
+            transition={{ ...SPRING, delay: 0.15 }}
             className="flex items-center gap-2.5"
           >
             <span
@@ -89,7 +89,7 @@ export function VelombeHeroPortrait() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...VELOMBE_SPRING, delay: 0.5 }}
+            transition={{ ...SPRING, delay: 0.5 }}
             className="mt-10 max-w-lg text-pretty text-[15px] leading-relaxed text-[var(--v-muted)]"
           >
             {HERO_PORTRAIT.intro.map((segment) => (
@@ -107,7 +107,7 @@ export function VelombeHeroPortrait() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...VELOMBE_SPRING, delay: 0.6 }}
+            transition={{ ...SPRING, delay: 0.6 }}
             // flex-wrap, not flex-col-then-row: the two pills fit side by
             // side at 360px, and stacking them by default spends a whole
             // row of a phone hero on a break nothing asked for. They wrap
@@ -137,7 +137,7 @@ export function VelombeHeroPortrait() {
 
       <PortraitColumn />
 
-      <VelombeTechStrip />
+      <TechStrip />
     </section>
   );
 }

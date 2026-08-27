@@ -13,7 +13,7 @@ import { BRAND } from "./data";
 
    `V` inherits `currentColor`; `e` takes the lime. Splitting on the
    letter rather than tinting the pair keeps the accent to a single glyph,
-   which is what the budget in velombe.css asks for. `accent={false}`
+   which is what the budget in portfolio.css asks for. `accent={false}`
    makes both inherit — for print, or anywhere two tones would muddy at
    small size.
 
@@ -38,7 +38,7 @@ import { BRAND } from "./data";
    word. Nothing references that file yet, so it is inert either way.
    ═════════════════════════════════════════════════════════════════════ */
 
-export function VelombeMark({
+export function Mark({
   className,
   accent = true,
 }: {
@@ -74,7 +74,7 @@ export function VelombeMark({
    the colour break lands on the turn instead of seaming down the middle
    of it.
 
-   To restore: render <VelombeCheckMark /> in the lockup below and give it
+   To restore: render <CheckMark /> in the lockup below and give it
    `size-[21px]` back in place of the font-size utility.
 ────────────────────────────────────────────────────────────────────────── */
 
@@ -88,7 +88,7 @@ const LONG_ARM = "M26 48 L47 16";
  *  lighter and the mark disappears at favicon size. */
 const STROKE_WIDTH = 10;
 
-export function VelombeCheckMark({
+export function CheckMark({
   className,
   accent = true,
 }: {
@@ -135,7 +135,7 @@ export function VelombeCheckMark({
  * a reason to grow the monogram: it sits in a fixed-height nav pill, and
  * the size is set by that row, not by what is beside it.
  */
-export function VelombeLogo({
+export function Logo({
   className,
   markClassName,
   wordmark = false,
@@ -147,7 +147,7 @@ export function VelombeLogo({
 }) {
   return (
     <span className={cn("inline-flex items-baseline gap-1.5", className)}>
-      <VelombeMark className={cn("text-[22px]", markClassName)} />
+      <Mark className={cn("text-[22px]", markClassName)} />
       {wordmark && (
         // lowercase as a CSS transform, not `BRAND.toLowerCase()` — BRAND
         // is still the real, capitalised name everywhere it is read as

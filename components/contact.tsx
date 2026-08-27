@@ -12,7 +12,7 @@ import { Eyebrow, Reveal, Section, ShimmerButton, StatusDot } from "./primitives
  * budget, timeline, project description) belongs on one page, not
  * duplicated onto every section that mentions getting in touch.
  */
-export function VelombeContact() {
+export function Contact() {
   return (
     <Section id="contact">
       <div className="relative overflow-hidden rounded-2xl border border-[var(--v-line)] bg-[var(--v-surface)] px-6 py-20 sm:px-12 sm:py-28">

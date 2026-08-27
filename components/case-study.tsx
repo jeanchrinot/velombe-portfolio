@@ -19,7 +19,7 @@ import {
  * true style" the ask referenced — this just gives every project the full
  * version of it instead of only the one flagship gets.
  */
-export function VelombeCaseStudy({ cs }: { cs: CaseStudy }) {
+export function CaseStudy({ cs }: { cs: CaseStudy }) {
   return (
     <>
       <Hero cs={cs} />

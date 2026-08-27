@@ -6,7 +6,7 @@ import { Eyebrow, Reveal } from "./primitives";
  * long-form body instead of a card grid, since this is prose, not a stack
  * of facts.
  */
-export function VelombeLegalPage({
+export function LegalPage({
   eyebrow,
   headline,
   updated,

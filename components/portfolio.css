@@ -1,11 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   VELOMBE — scoped template stylesheet
+   PORTFOLIO — scoped stylesheet
    ───────────────────────────────────────────────────────────────────────
-   Third in the set. Nocturne sells a product, Atelier sells a studio's
-   judgement, Velombe presents one engineer's evidence. Same zinc ground,
-   same type stack — but monospace is promoted to a first-class role here,
-   because metrics, tech names and terminal output are what make a
-   developer page read like a developer's.
+   An evidence-first developer portfolio. Zinc ground, a real monospace
+   promoted to a first-class role — metrics, tech names and terminal
+   output are what make a developer page read like a developer's.
 
    ── THE ACCENT BUDGET ─────────────────────────────────────────────────
    Lime is the only hue on the page, and it is rationed on purpose.
@@ -41,7 +39,7 @@
    SECOND: the Selected Work block labels, which is what retires the
    "one lime element per card" rule above — the flagship card alone carries
    four (Problem, What I built, Key decision, Also true) at once. Each case
-   study page (components/velombe/case-study.tsx) repeats the
+   study page (components/case-study.tsx) repeats the
    same four in its own dl, plus a fifth of its own — the "Built with"
    label heading the tech-stack rail beside it, same page, same view. Same
    repeated-element logic as the step markers: labels in one group read as
@@ -66,20 +64,19 @@
    #FFFFFF) #84CC16 clears AA comfortably, so there is no reason to lighten
    it further. Same split globals.css already uses for --primary.
 
-   Everything is namespaced under `.velombe`. This is the live copy — the
-   site's actual homepage — forked from components/templates/velombe/,
-   which still exists unchanged as the source for the /templates/velombe
-   showcase page. The two are independent from here on; nothing here is
-   deleted or kept in lockstep just because a sibling template changes.
+   Everything is namespaced under `.portfolio`. The component tree it
+   scopes (components/*) is self-contained — no dependency on components/ui,
+   components/shared, hooks/, or config/ — so it can be lifted into another
+   project wholesale.
 
-   Imported by app/[locale]/(landing)/layout.tsx
+   Imported by app/(landing)/layout.tsx
    ═══════════════════════════════════════════════════════════════════════ */
 
-/* Light is the default (no ancestor `.dark`); `.dark .velombe` below
+/* Light is the default (no ancestor `.dark`); `.dark .portfolio` below
    overrides every one of these for the dark theme, which is a verbatim
    copy of the values this template shipped with before light mode existed
    — dark is a preserved default, not a new case. */
-.velombe {
+.portfolio {
   /* Surfaces ------------------------------------------------------------ */
   --v-bg: #fafaf9;
   --v-surface: #ffffff;
@@ -110,7 +107,7 @@
   --v-beam-mid: rgba(132, 204, 22, 0.2);
 
   /* Ambient/scrim treatments below were literal, dark-ground-only colors
-     until now — each gets a token pair here and in .dark .velombe. */
+     until now — each gets a token pair here and in .dark .portfolio. */
   --v-scrim-1: rgba(255, 255, 255, 0.92);
   --v-scrim-2: rgba(255, 255, 255, 0.12);
   --v-scrim-3: rgba(255, 255, 255, 0.5);
@@ -128,16 +125,16 @@
 
   background-color: var(--v-bg);
   color: var(--v-fg);
-  font-family: var(--font-velombe-body), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-portfolio-body), ui-sans-serif, system-ui, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 /* Dark — preserved exactly as this template shipped before light mode
    existed. `.dark` lands on <html> (next-themes, attribute="class"), an
-   ancestor of `.velombe`, so this has to be `.dark .velombe`, not
-   `.velombe.dark`. */
-.dark .velombe {
+   ancestor of `.portfolio`, so this has to be `.dark .portfolio`, not
+   `.portfolio.dark`. */
+.dark .portfolio {
   /* Surfaces ------------------------------------------------------------ */
   --v-bg: #09090b;            /* zinc-950 */
   --v-surface: #18181b;       /* zinc-900 */
@@ -190,14 +187,14 @@
 
 /* One of the cheapest accent uses on the page, and the one people notice
    least consciously. */
-.velombe ::selection {
+.portfolio ::selection {
   background: var(--v-accent);
   color: #09090b;
 }
 
 /* Keyboard focus is an accent use that earns its place: it is functional,
    not decorative, so it does not count against the budget. */
-.velombe :focus-visible {
+.portfolio :focus-visible {
   outline: 2px solid var(--v-accent);
   outline-offset: 3px;
   border-radius: 4px;
@@ -207,18 +204,18 @@
    Classes rather than Tailwind font-* utilities so the folder carries no
    dependency on a matching @theme block. */
 .v-display {
-  font-family: var(--font-velombe-display), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-portfolio-display), ui-sans-serif, system-ui, sans-serif;
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 0.94;
 }
 .v-heading {
-  font-family: var(--font-velombe-heading), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-portfolio-heading), ui-sans-serif, system-ui, sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 .v-mono {
-  font-family: var(--font-velombe-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-portfolio-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
 }
@@ -341,7 +338,7 @@
 
 /* ── Primary CTA shimmer ───────────────────────────────────────────────
    The band has to be the opposite of the pill: --v-cta-bg is white in dark
-   mode and near-black in light mode (see .velombe/.dark .velombe), and a
+   mode and near-black in light mode (see .velombe/.dark .portfolio), and a
    same-tone band over a same-tone pill composites to invisible regardless
    of blend mode. --v-shimmer-band tracks that inversion. */
 @keyframes v-shimmer {
@@ -598,9 +595,9 @@
    All of the above is decorative; nothing here carries meaning that is
    lost when it stops. */
 @media (prefers-reduced-motion: reduce) {
-  .velombe *,
-  .velombe *::before,
-  .velombe *::after {
+  .portfolio *,
+  .portfolio *::before,
+  .portfolio *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

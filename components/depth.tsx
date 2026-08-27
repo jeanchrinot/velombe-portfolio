@@ -19,7 +19,7 @@ const SPAN: Record<number, string> = {
   4: "lg:col-span-4",
 };
 
-export function VelombeDepth() {
+export function Depth() {
   return (
     <Section id="stack">
       <SectionHeader

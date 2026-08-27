@@ -26,7 +26,7 @@ import { Reveal, Section, SectionHeader } from "./primitives";
  * one. Five horizontal rules stacked down the page still read as one
  * sequence, and they match both the desktop rule and the section eyebrows.
  */
-export function VelombeBuild() {
+export function Build() {
   const reduced = useReducedMotion();
 
   return (

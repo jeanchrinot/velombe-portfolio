@@ -673,7 +673,7 @@ export const FOOTER = {
    own role comments, package.json's actual versions, smooth-scroll.tsx's
    doc comment, CLAUDE.md's "no hardcoded strings" rule, VELOMBE.md's own
    line about AI-assisted development, and the accent-budget header in
-   velombe.css. Nothing here is written for this page alone. */
+   portfolio.css. Nothing here is written for this page alone. */
 
 export const COLOPHON = {
   eyebrow: "Colophon",

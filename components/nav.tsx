@@ -7,19 +7,19 @@ import { ArrowUpRight, Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { AVAILABILITY, NAV_LINKS } from "./data";
-import { VelombeLogo } from "./logo";
-import { VelombeModeToggle } from "./mode-toggle";
+import { Logo } from "./logo";
+import { ModeToggle } from "./mode-toggle";
 import {
   anchorHandler,
   isHomePath,
   Magnetic,
   ShimmerButton,
   StatusDot,
-  VELOMBE_SPRING,
+  SPRING,
 } from "./primitives";
-import { velombeScrollTo } from "./smooth-scroll";
+import { scrollToHash } from "./smooth-scroll";
 
-export function VelombeNav() {
+export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -54,7 +54,7 @@ export function VelombeNav() {
       <motion.nav
         initial={{ y: -24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ ...VELOMBE_SPRING, delay: 0.1 }}
+        transition={{ ...SPRING, delay: 0.1 }}
         className={cn(
           // `relative z-50` is what makes the close button reachable. The
           // sheet below is `fixed z-40`; a positioned element paints above
@@ -72,7 +72,7 @@ export function VelombeNav() {
           onClick={anchorHandler("/#top")}
           className="flex items-center"
         >
-          <VelombeLogo />
+          <Logo />
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -96,14 +96,14 @@ export function VelombeNav() {
               availability signal this pill used to carry (dot + "Available")
               moved to the mobile sheet's footnote; this slot is a CTA now.
               White, not lime — same primary-CTA rule as everywhere else
-              (see the accent budget in velombe.css): a lime button would
+              (see the accent budget in portfolio.css): a lime button would
               spend most of the budget on one element in the nav. */}
           <ShimmerButton href="/hire" size="md" className="hidden sm:inline-flex">
             Hire me
             <ArrowUpRight className="size-3.5" strokeWidth={1.5} />
           </ShimmerButton>
 
-          <VelombeModeToggle />
+          <ModeToggle />
 
           <button
             type="button"
@@ -142,7 +142,7 @@ export function VelombeNav() {
                   key={link.href}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ ...VELOMBE_SPRING, delay: 0.05 + i * 0.05 }}
+                  transition={{ ...SPRING, delay: 0.05 + i * 0.05 }}
                 >
                   <Link
                     href={link.href}
@@ -160,7 +160,7 @@ export function VelombeNav() {
                         return;
                       }
                       e.preventDefault();
-                      velombeScrollTo(link.href.slice(link.href.indexOf("#")));
+                      scrollToHash(link.href.slice(link.href.indexOf("#")));
                     }}
                     className="v-display block border-b border-[var(--v-line-soft)] py-5 text-3xl text-[var(--v-fg)]"
                   >

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
  * light/dark control), restyled to this folder's own idiom instead of the
  * shared shadcn Button — sized to match the hamburger button beside it.
  */
-export function VelombeModeToggle({ className }: { className?: string }) {
+export function ModeToggle({ className }: { className?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
 
   return (

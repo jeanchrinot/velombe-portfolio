@@ -1,4 +1,4 @@
-import { VelombeLegalPage } from "@/components/velombe/legal";
+import { LegalPage } from "@/components/legal";
 import { constructMetadata } from "@/lib/utils";
 
 export const metadata = constructMetadata({
@@ -32,7 +32,7 @@ const SECTIONS = [
 export default function PrivacyPage() {
   return (
     <main>
-      <VelombeLegalPage
+      <LegalPage
         eyebrow="Legal"
         headline="Privacy Policy"
         updated="2026"

@@ -6,12 +6,8 @@ import { submitHireForm } from "@/actions/hire";
 import { Magnetic } from "./primitives";
 
 /**
- * Same server action, same schema, same field names as components/forms/
- * hire-form.tsx — only the styling changed. That file is left in place,
- * unreferenced, once (marketing)/hire/page.tsx is removed: same "parked,
- * not deleted" rule as everything else in this codebase, and the marketing
- * site's other forms (login, signup) still import from that shared style,
- * so the file itself isn't dead code, just this one caller.
+ * The /hire page's form. Server action does Zod validation and an email
+ * send via Resend — no database.
  */
 
 const initialState = { success: false, error: undefined as string | undefined };
@@ -41,7 +37,7 @@ function Field({
   );
 }
 
-export function VelombeHireForm() {
+export function HireForm() {
   const [state, action, isPending] = useActionState(
     submitHireForm,
     initialState,

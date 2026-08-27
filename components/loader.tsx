@@ -26,7 +26,7 @@ import { BRAND } from "./data";
    stylesheet to be *positioned* is no curtain at all.
 
    The background is the one exception, and it is a CSS class
-   (.v-loader-curtain in velombe.css) rather than inline — on purpose, once
+   (.v-loader-curtain in portfolio.css) rather than inline — on purpose, once
    there were two themes to pick between. There is no `document` on the
    server to say which one the visitor chose, so an inline value computed
    in JS can only ever be right *after* hydration runs, which is a whole
@@ -58,7 +58,7 @@ const MAX_MS = 2500;
 /** Beat after load so the curtain does not blink out of existence. */
 const SETTLE_MS = 350;
 
-export function VelombeLoader() {
+export function Loader() {
   const [lifted, setLifted] = useState(false);
 
   useEffect(() => {

@@ -15,7 +15,7 @@ import { TECH_STACK } from "./tech-icons";
  * Every glyph is a single 24×24 currentColor path, so one <svg> wrapper
  * serves all of them and the icon inherits the row's hover colour for free.
  */
-export function VelombeTechStrip() {
+export function TechStrip() {
   return (
     // A <section> with an accessible name, not a <div>. The visible heading
     // is gone, so without this a screen reader meets thirteen bare product
@@ -37,7 +37,7 @@ export function VelombeTechStrip() {
       className="relative z-10 border-t border-[var(--v-line-soft)] bg-[var(--v-bg)] py-11 sm:mt-16 sm:py-14"
     >
       <div className="v-marquee v-marquee-mask relative overflow-hidden">
-        {/* Speed comes from --v-marquee-duration (52s default in velombe.css). */}
+        {/* Speed comes from --v-marquee-duration (52s default in portfolio.css). */}
         <div className="v-marquee-track">
           {[0, 1].map((copy) => (
             <ul

@@ -1,5 +1,5 @@
 import { AVAILABILITY } from "./data";
-import { VelombeHireForm } from "./hire-form";
+import { HireForm } from "./hire-form";
 import { Card, Eyebrow, Reveal, StatusDot } from "./primitives";
 
 /**
@@ -13,7 +13,7 @@ import { Card, Eyebrow, Reveal, StatusDot } from "./primitives";
  * Section primitive, which would double up on padding against the Hero's
  * own.
  */
-export function VelombeHire() {
+export function Hire() {
   return (
     <>
       <Hero />
@@ -133,7 +133,7 @@ function Body() {
           <Card interactive={false} className="p-6 sm:p-8">
             <h2 className="v-display text-xl text-[var(--v-fg)]">Start a project</h2>
             <div className="mt-8 border-t border-[var(--v-line)] pt-8">
-              <VelombeHireForm />
+              <HireForm />
             </div>
           </Card>
         </Reveal>

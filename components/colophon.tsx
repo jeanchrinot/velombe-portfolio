@@ -8,7 +8,7 @@ import { Eyebrow, Reveal } from "./primitives";
  * Section primitive, which would double up on padding against the Hero's
  * own.
  */
-export function VelombeColophon() {
+export function Colophon() {
   return (
     <>
       <Hero />
@@ -57,7 +57,7 @@ function Hero() {
 function Body() {
   return (
     <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-16 pb-28 sm:px-8 sm:pt-20 md:pb-32">
-      {/* Same card language as VelombeDepth on the homepage — title,
+      {/* Same card language as Depth on the homepage — title,
           opinion sentence, chips — reused rather than reinvented, since
           "the stack" is the same kind of content whether it's arguing a
           hiring case or documenting the build. */}

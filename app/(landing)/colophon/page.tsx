@@ -1,4 +1,4 @@
-import { VelombeColophon } from "@/components/velombe/colophon";
+import { Colophon } from "@/components/colophon";
 import { constructMetadata } from "@/lib/utils";
 
 export const metadata = constructMetadata({
@@ -9,13 +9,13 @@ export const metadata = constructMetadata({
 
 /**
  * Lives in (landing) like the homepage, the case studies and /hire, so it
- * inherits VelombeNav / VelombeFooter / the loading curtain from
+ * inherits Nav / Footer / the loading curtain from
  * (landing)/layout.tsx.
  */
 export default function ColophonPage() {
   return (
     <main>
-      <VelombeColophon />
+      <Colophon />
     </main>
   );
 }

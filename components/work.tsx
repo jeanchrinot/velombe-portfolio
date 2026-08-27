@@ -25,7 +25,7 @@ import { Reveal, Section, SectionHeader, ShimmerButton } from "./primitives";
  * so the artifact zoom, the title arrow and the chip lift still fire on
  * card hover — those were always CSS and never needed the anchor.
  */
-export function VelombeWork() {
+export function Work() {
   return (
     <Section id="work">
       <SectionHeader

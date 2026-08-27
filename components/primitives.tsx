@@ -11,13 +11,13 @@ import {
 } from "motion/react";
 
 import { cn } from "@/lib/utils";
-import { velombeScrollTo } from "./smooth-scroll";
+import { scrollToHash } from "./smooth-scroll";
 
 /* ─────────────────────────────────────────────────────────────────────────
    Shared spring. Every reveal and every magnetic pull runs on this curve —
    a single physical "weight" is most of what makes a page feel authored.
 ────────────────────────────────────────────────────────────────────────── */
-export const VELOMBE_SPRING: Transition = {
+export const SPRING: Transition = {
   type: "spring",
   stiffness: 120,
   damping: 20,
@@ -54,7 +54,7 @@ export function Reveal({
       initial={reduced ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-12% 0px -12% 0px" }}
-      transition={{ ...VELOMBE_SPRING, delay }}
+      transition={{ ...SPRING, delay }}
     >
       {children}
     </Tag>
@@ -242,7 +242,7 @@ const SIZE = {
 /**
  * Primary CTA — white, not lime. A lime button would spend most of the
  * accent budget on a single element, and white on zinc-950 is the highest
- * contrast pair available. See the budget note at the top of velombe.css.
+ * contrast pair available. See the budget note at the top of portfolio.css.
  */
 export function ShimmerButton({
   children,
@@ -358,7 +358,7 @@ export function isHomePath(pathname: string): boolean {
  * this route group via layout.tsx — including case study pages that have
  * no `#section` to scroll to. Intercepting unconditionally there used to
  * mean clicking "Work" from a case study silently did nothing: `document.
- * querySelector("#work")` found nothing and `velombeScrollTo` returned
+ * querySelector("#work")` found nothing and `scrollToHash` returned
  * early.
  *
  * The fix has to run at click time, not render time — this function runs
@@ -380,7 +380,7 @@ export function anchorHandler(href: string) {
   return (e: React.MouseEvent) => {
     if (path && !isHomePath(window.location.pathname)) return;
     e.preventDefault();
-    velombeScrollTo(hash);
+    scrollToHash(hash);
   };
 }
 
@@ -508,7 +508,7 @@ export function SectionRule() {
           className="v-snake absolute inset-x-0 top-0 block h-1/3 bg-[var(--v-accent)]"
           // Parked mid-rail under reduced motion rather than dropped: the
           // mark is part of the seam's design, only its travel is
-          // decorative. The blanket rule at the foot of velombe.css cannot
+          // decorative. The blanket rule at the foot of portfolio.css cannot
           // help here — it collapses CSS animation durations, and this is
           // a JS transform.
           animate={

@@ -13,7 +13,7 @@ import { Eyebrow, Reveal, Section } from "./primitives";
  * Left column is sticky: the portrait and credentials stay in view while the
  * experience rail scrolls, so the face is attached to the record.
  */
-export function VelombeAbout() {
+export function About() {
   return (
     <Section id="about">
       <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">

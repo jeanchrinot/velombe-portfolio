@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Facebook, Github, Instagram, Linkedin } from "lucide-react";
 
 import { BRAND, CONTACT, FOOTER, NAV_LINKS } from "./data";
-import { VelombeLogo } from "./logo";
+import { Logo } from "./logo";
 import { ScrollLink } from "./primitives";
 
 /**
@@ -57,7 +57,7 @@ const SOCIAL_ICON: Record<string, React.ComponentType<IconProps>> = {
 };
 
 /**
- * VelombeFooter is a Server Component; it cannot call `anchorHandler`
+ * Footer is a Server Component; it cannot call `anchorHandler`
  * itself — that's a function exported from a "use client" module, and
  * invoking it during a server render throws "Attempted to call
  * anchorHandler() from the server". `ScrollLink` exists in primitives.tsx
@@ -113,7 +113,7 @@ function FooterSocial({ label, href }: { label: string; href: string }) {
   );
 }
 
-export function VelombeFooter() {
+export function Footer() {
   const year = new Date().getFullYear();
 
   return (
@@ -124,7 +124,7 @@ export function VelombeFooter() {
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div className="grid gap-12 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
           <div>
-            <VelombeLogo />
+            <Logo />
             <p className="mt-4 max-w-xs text-[13px] leading-relaxed text-[var(--v-faint)]">
               {FOOTER.blurb}
             </p>

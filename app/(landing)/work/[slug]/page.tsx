@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { VelombeCaseStudy } from "@/components/velombe/case-study";
-import { getCaseStudy, getCaseStudySlugs } from "@/components/velombe/case-studies";
+import { CaseStudy } from "@/components/case-study";
+import { getCaseStudy, getCaseStudySlugs } from "@/components/case-studies";
 import { constructMetadata } from "@/lib/utils";
 
 /**
- * The dynamic Velombe case study page, at the same URL the old Systems &
- * Proof design used (/work/[slug]) — that route lived in (marketing) and
- * is removed, since a URL can only resolve to one page. Its component
- * (components/work/case-study-layout.tsx) and data (lib/data/
- * case-studies.ts) are left in place, unreferenced, same as every other
- * "parked" file in this codebase.
- *
- * Lives in (landing) rather than (marketing) so it inherits VelombeNav,
- * VelombeFooter and the loading curtain from (landing)/layout.tsx — the
- * same reason the homepage moved there.
+ * The dynamic case study page, /work/[slug] — inherits Nav, Footer, and
+ * the loading curtain from (landing)/layout.tsx like every other route.
  */
 
 interface Props {
@@ -46,7 +38,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <main>
-      <VelombeCaseStudy cs={cs} />
+      <CaseStudy cs={cs} />
     </main>
   );
 }
